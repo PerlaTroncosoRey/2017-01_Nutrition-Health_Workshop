@@ -1,0 +1,124 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ...letterpaper 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\graphicspath{ {images/} }
+
+\usepackage{hyperref}
+\usepackage{subcaption}
+
+
+\title{Connecting Nutrition, Health and Environment }
+\author{Perla Troncoso Rey, Wiktor Jurkowski, Earlham Institute}
+\date{24t - 29 January 2017}	 % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+
+\part{Part I}
+
+\section{Introduction to the data}
+
+Some details
+
+\subsection{Exploring the expression data}
+
+\subsubsection{Principal Component Analysis}
+
+\subsubsection{Hierarchical Clustering}
+
+\subsection{Interaction Network}
+\subsubsection{Compile the network with Cytoscape}
+
+
+\part{Part II}
+\section{Ranking genes (Feature Selection)} 
+
+Feature selection with MultiPEN from expression leves and network 
+
+
+\section{Pathway Analysis}
+
+Using the ranking from feature selection
+
+
+%Example to create a list
+%List:
+%\begin{itemize}
+%	\item item 1
+%	\item item 2		
+%\end{itemize}
+
+
+%Example to enumerate a list
+%\begin{enumerate}	
+%	\item enumerated item
+%	\item another item
+%\end{enumerate}
+
+
+%Figure resference \autoref{fig:volcanoplot}). 
+%
+%\begin{figure}[!h]
+%	\centering
+%	\includegraphics[width=\textwidth]{VolcanoMatrix}
+%	\caption{Matrix of volcano plots explore genes that differ significantly between pairs of conditions}
+%	\label{fig:volcanoplot}
+%\end{figure}
+
+%figure with subfigures
+%\begin{figure}[!h]
+%	\centering
+%	\begin{subfigure}{.3\textwidth}
+%		\includegraphics[width=\textwidth]{MAPlotEPS1_8_EPS2_8}
+%		\caption{MA for EPS1 and EPS2, 8 hours}
+%		\label{fig:MAPlotEPS1_8_EPS2_8}
+%	\end{subfigure}
+%	\begin{subfigure}{0.3\textwidth}
+%		\includegraphics[width=\textwidth]{MAPlotEPS1_8_noEPS_8}
+%		\caption{MA for EPS1 and noEPS, 8 hours}
+%		\label{fig:MAPlotEPS1_8_noEPS_8}
+%	\end{subfigure}
+%	\begin{subfigure}{.3\textwidth}
+%		\includegraphics[width=\textwidth]{MAPlotEPS2_8_noEPS_8}
+%		\caption{MA for EPS2 and noEPS, 8 hours}
+%		\label{fig:MAPlotEPS2_8_noEPS_8}
+%	\end{subfigure}
+%	\caption{Average intensity vs log ratio Plots, for 8 hours}
+%	\label{fig:MAPlot_8hours}
+%\end{figure}
+
+
+%See below example of table  \autoref{tab:table1}
+%\begin{table}[h]
+%	\centering
+%	\caption{Example of table 1}
+%	\begin{tabular}{c | c | c}
+%		\hline
+%		column 1 & column 2 & column 3 \\
+%		\hline
+%		aaaaa  & bbbbbbb & ccccccc \\ 
+%		xxxxxxx  & yyyyyyyy & zzzzzzzz \\		
+%		\label{tab:table1}
+%	\end{tabular}
+%\end{table}
+
+
+
+
+
+\bibliography{references}
+\bibliographystyle{plain}
+
+\end{document}  
