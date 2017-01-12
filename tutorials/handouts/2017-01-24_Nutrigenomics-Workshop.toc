@@ -1,0 +1,10 @@
+\contentsline {part}{I\hspace {1em}Part I}{1}{part.1}
+\contentsline {section}{\numberline {1}Introduction to the data}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Exploring the expression data}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Principal Component Analysis}{2}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{6}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Interaction Network}{6}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{6}{subsubsection.1.2.1}
+\contentsline {part}{II\hspace {1em}Part II}{6}{part.2}
+\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{6}{section.2}
+\contentsline {section}{\numberline {3}Pathway Analysis}{6}{section.3}
