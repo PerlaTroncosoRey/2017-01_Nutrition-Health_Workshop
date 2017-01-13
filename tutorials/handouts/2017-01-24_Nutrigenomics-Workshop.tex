@@ -13,6 +13,8 @@
 \usepackage{subcaption}
 \usepackage{amsmath}
 
+\usepackage{framed}
+
 
 \title{Connecting Nutrition, Health and Environment }
 \author{Perla Troncoso Rey, Wiktor Jurkowski, Earlham Institute}
@@ -39,7 +41,7 @@ Some details
 
 \subsubsection{Principal Component Analysis}
 
-Principal Component Analysis, PCA, is a mathematical technique that is used to explore data, specially high-dimensional data. PCA is a method of extracting some of the most important trends in high-dimensional data.
+Principal Component Analysis, commonly known as PCA, is a mathematical technique that is used to explore data, specially high-dimensional data, to extract the most important trends in the data.
 
 Example of data is shown in \autoref{fig:ExpressionData}
 
@@ -50,22 +52,10 @@ Example of data is shown in \autoref{fig:ExpressionData}
 	\label{fig:ExpressionData}
 \end{figure}
 
-high dimensionality: 
-as many dimensions as number of genes
-The result of each experiment can be thought as a kind of space, where each each feature is a coordinate in the space. 
-there are typically thousands of genes 
-the structure of pattern in the data extends to all the dimensions 
-
-Tools to perform PCA:
-
-\begin{itemize}
-   \item MATLAB
-   \item R
-\end{itemize}
+When thinking of gene expression data, high dimensionality comes from the large number of dimensions of the data. This is, the result of each experiment can be thought as a kind of space, where each each feature is a coordinate in the space. There are typically thousands of genes (dimensions) and the structure of pattern in the data extends to all the dimensions. 
 
 
-How it works:
-
+{\bf How PCA works}
 
 The mean represents the average of the values in the data:
 
@@ -116,20 +106,161 @@ The covariance also increases in magnitude as the variance of each of the two da
 
 
 
-Coordinate transformations
+\paragraph{Coordinate transformations}
+\paragraph{}
+In a two dimensional space described by coordinates, a point in space is described by X and Y such that ${\bf v} = [x_1, y_1]$. For example, the vector $v_1 = [1 ~2]^T$ represents the point:
 
-- Two dimensional space described by coordinates (i.e. a point in space described by $x_1$ and $y_1$ such that ${\bf v} = [x_1, y_1]$).
+An alternative coordinate systems described by the coordinates $\text{X}^\prime$ and $\text{Y}^\prime$, has a different column vector describing the same point ${\bf v^\prime} = [x_1^\prime, y_1^\prime]$.
+
+The two coordinate systems are $T{\bf v} = {\bf v}^\prime$, related to the orthogonal transform matrix $T$ (an orthogonal matrix is the kind of matrix which performs rotated-axis coordinate transforms). 
+
+We can make a new coordinate system by using a transformation matrix T, which relates the two coordinates vectors by matrix multiplication. There are many types of transformations but we are particularly interested in transformations which rotate the coordinate axis. These are performed by matrices which have the property called orthogonality.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{example-coordinate-transform}
+	\caption{Example of a coordinate transform}
+	\label{fig:CoordinateTransform}
+\end{figure}
+
+
+
+\paragraph{Eigenvalues and Eigenvectors}
+\paragraph{}
+
+When a transformation matrix maps a vector to a multiple of itself, then the vector is called an Eigenvector. The amount by which the vector is multiplied (stretched) is the associated Eigenvalue:
+
+\begin{equation}
+T x = \lambda x
+\end{equation} 
+
+$\lambda$ are the Eigenvalues and $x$ are the Eigenvectors. A matrix formed from the Eigenvectors placed in the columns is orthogonal.
+
+In general terms, PCA uses covariants to encode the structure in the data and then eigenvectors to devise a new set of coordinates that best reveals the structure by finding the appropriate set of directions. One result from linear algebra is that if the eigenvectors are placed next to each other then the result is an orthogonal matrix that performs a coordinate transformation. This is central for PCA.
+
+Example: 
+
+\[ \text{The matrix: }
+%
+   \left(
+      \begin{tabular}{cc}
+      1 & 3 \\ 
+      2 & 2
+      \end{tabular}
+   \right)
+   %
+   \text{has eigenvalues 4 and -1.}
+   \text{ and the eigenvectors}
+   \left( \begin{array}{c}
+      1 \\ 
+      1
+      \end{array}
+   \right)
+   \text{and} 
+   \left( \begin{array}{c}
+      3 \\ 
+      -2
+      \end{array}
+   \right)
+\]
+
+
+such that
+
+\[ \left( \begin{array}{cc}
+      1 & 3\\ 
+      2 & 2
+      \end{array} \right)
+%
+   \left( \begin{array}{c}
+      1 \\ 
+      1
+      \end{array} \right)
+%
+   = 4
+   \left( \begin{array}{c}
+   1\\
+   1
+   \end{array} \right)
+\text{~~~and~~~}
+   \left( \begin{array}{cc}
+   1 & 3\\
+   2 & 2
+   \end{array} \right)
+%
+   \left( \begin{array}{c}
+   3\\
+   -2
+   \end{array} \right)
+%
+   =-1
+   \left( \begin{array}{c}
+   3\\
+   -2
+   \end{array} \right)
+\]
+
+
+
+\paragraph{In summary, PCA benefits are:}
+
+\begin{itemize}
+
+   \item A powerful tool to visualise high dimensional data 
+
+   \item Shows quantified difference among observations
+
+   \item Used to assess data quality and discover relationships between data points
+\end{itemize}
+
+
+
+\paragraph{Some tools to perform PCA include:}
+
+\begin{itemize}
+   \item MATLAB
+   \item R
+\end{itemize}
+
+
+
+\paragraph{PCA: an example}
+\paragraph{}
+
+We will perform PCA on the example data which represents several measurements of the expression of two genes, $x$ and $y$.
+
+\begin{center}
+\begin{tabular}{c|c}
+   x & y \\
+   \hline
+   2.5 & 2.4\\
+   0.5 & 0.7\\
+   2.2 & 2.9\\
+   1.9 & 2.2\\
+   3.1 & 3.0\\
+   2.3 & 2.7\\
+   2.0 & 1.6\\
+   1.0 & 1.1\\
+   1.5 & 1.6\\
+   1.1 & 0.9\\
+   \hline
+\end{tabular}
+\end{center}
+
+
+% Here we start with some hands-on exercises
+Create a matrix with the gene expression
+
+\begin{framed}
+\begin{verbatim}
+	data <- 
+\end{verbatim}
+\end{framed}
+
 
 xxxxxxxxxxxxxx
 
 
-PCA benefits (merits)
-
-- A powerful tool to visualise high dimensional data 
-
-- Shows quantified difference among observations
-
-- Used to assess data quality and discover relationships between data points
 
 
 Example 1:
