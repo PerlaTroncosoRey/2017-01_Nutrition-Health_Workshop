@@ -29,21 +29,23 @@
 \listoftables
 
 
+\section{Introduction}
+
+In this practice, we will look at how to explore  gene expression data (which could be extracted from microarray or RNA sequencing data). In the first part of this practical session we will see general techniques to explore the patterns or structure of the data using Principal Component Analysis, PCA, and Hierarchical Clustering. We will then look into compiling an interaction network using an online resource and how to visualise the network using Cytoscape \cite{}.
+
+In the second part, we will look at ways to rank genes (and/or metabolites) using approaches based on logistic regression. We will then perform pathway analysis using those rankings.
+
+We will use a publicly available data from a study on fatty liver disease of obese and lean human subjects \cite{}.
+
+
+
 \part{Part I}
-
-\section{Introduction to the data}
-
-Some details
 
 \subsection{Exploring the expression data}
 
-
-
-\subsubsection{Principal Component Analysis}
-
-Principal Component Analysis, commonly known as PCA, is a mathematical technique that is used to explore data, specially high-dimensional data, to extract the most important trends in the data.
-
-Example of data is shown in \autoref{fig:ExpressionData}
+One could obtain gene expression from microarrays or RNA sequencing data. It is not within the scope of this session to look at the details of obtaining quantifying the expression of genes from microarrays or RNA sequencing data but instead we will start our analysis assuming that expression data has been quantified.
+The gene expression data is normally stored in tabular file, representing a matrix where the columns are the samples or experiments, and the rows represent the genes. 
+Example of expression data is shown in \autoref{fig:ExpressionData}. The table shows the expression of six genes in four different experiments or samples. This is, gene A has expression of 0.1 for sample 1, 0.8 for sample 2, 0.3 for sample 3, and so forth. 
 
 \begin{figure}[!h]
 	\centering
@@ -51,6 +53,15 @@ Example of data is shown in \autoref{fig:ExpressionData}
 	\caption{Example of expression data with samples across the columns and individual genes down the rows.}
 	\label{fig:ExpressionData}
 \end{figure}
+
+
+Example of expression data from cufflinks 
+
+
+
+\subsubsection{Principal Component Analysis}
+
+Principal Component Analysis, commonly known as PCA, is a mathematical technique that is used to explore data, specially high-dimensional data, to extract the most important trends in the data.
 
 When thinking of gene expression data, high dimensionality comes from the large number of dimensions of the data. This is, the result of each experiment can be thought as a kind of space, where each each feature is a coordinate in the space. There are typically thousands of genes (dimensions) and the structure of pattern in the data extends to all the dimensions. 
 
