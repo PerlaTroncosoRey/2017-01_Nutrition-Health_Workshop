@@ -45,6 +45,7 @@ We will use a publicly available data from a study on fatty liver disease of obe
 
 One could obtain gene expression from microarrays or RNA sequencing data. It is not within the scope of this session to look at the details of obtaining quantifying the expression of genes from microarrays or RNA sequencing data but instead we will start our analysis assuming that expression data has been quantified.
 The gene expression data is normally stored in tabular file, representing a matrix where the columns are the samples or experiments, and the rows represent the genes. 
+
 Example of expression data is shown in \autoref{fig:ExpressionData}. The table shows the expression of six genes in four different experiments or samples. This is, gene A has expression of 0.1 for sample 1, 0.8 for sample 2, 0.3 for sample 3, and so forth. 
 
 \begin{figure}[!h]
@@ -55,7 +56,31 @@ Example of expression data is shown in \autoref{fig:ExpressionData}. The table s
 \end{figure}
 
 
-Example of expression data from cufflinks 
+Expression data can be obtained using different algorithms. One of the most well know are TopHat and Cufflinks protocol for the analysis of RNA sequencing data, which includes quantification of gene expression. \autoref{tab:ExpressionCufflinks} shows an example of the output provided by cufflinks with the estimated gene-level expression values. Cufflinks uses the notation ``XLOC\_{\it numeric\_sequence}'' to identify a gene.
+
+
+\begin{table}[h]
+    \centering
+    \caption{Example of the output provided by cufflinks for the quantification of gene expression from RNA sequencing data.}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c}
+    tracking\_id & sample1 & sample2 & sample3 & sample4 & sample5 & sample6 & sample7 & sample8 \\
+    \hline
+    XLOC\_000001 & 35.1077 & 50.9662 & 78.7724 & 35.4736 & 69.6067 & 63.9241 & 57.7967 & 61.4227 \\
+    XLOC\_000002 & 49.7359 & 64.6178 & 46.8884 & 74.617 & 66.0371 & 42.9654 & 645.65 & 64.8351 \\
+    XLOC\_000003 & 0 & 0 & 0.937767 & 0 & 0 & 0 & 0 & 0\\
+    XLOC\_000004 & 89.7196 & 85.5504 & 185.678 & 74.617 & 142.783 & 168.718 & 172.63 & 167.206 \\
+    XLOC\_000005 & 12.6778 & 39.1347 & 158.483 & 22.0181 & 28.5566 & 45.0613 & 15.9701 & 50.0481 \\
+    XLOC\_000006 & 10.7273 & 9.1011 & 10.3154 & 13.4555 & 7.13915 & 6.28762 & 7.60483 & 12.512 \\
+    XLOC\_000007 & 0 & 0 & 0.937767 & 0 & 0 & 0 & 0 & 0 \\
+    XLOC\_000008 & 55.5871 & 37.3145 & 86.2746 & 66.0544 & 66.9295 & 53.4448 & 54.7548 & 75.0722 \\
+    XLOC\_000009 & 37.0581 & 16.382 & 24.3819 & 24.4646 & 38.3729 & 15.7191 & 24.3355 & 50.0481 \\
+    XLOC\_000010 & 812.352 & 483.269 & 696.761 & 748.616 & 1094.97 & 521.873 & 675.309 & 741.622 \\
+    XLOC\_000011 & 0 & 0 & 0 & 0 & 0 & 1.04657 & 0.760483 & 1.13746\\
+    \hline
+    \label{tab:ExpressionCufflinks}
+    \end{tabular}
+\end{table}
+
 
 
 
@@ -66,7 +91,8 @@ Principal Component Analysis, commonly known as PCA, is a mathematical technique
 When thinking of gene expression data, high dimensionality comes from the large number of dimensions of the data. This is, the result of each experiment can be thought as a kind of space, where each each feature is a coordinate in the space. There are typically thousands of genes (dimensions) and the structure of pattern in the data extends to all the dimensions. 
 
 
-{\bf How PCA works}
+\paragraph{How PCA works}
+\paragraph{}
 
 The mean represents the average of the values in the data:
 
@@ -257,17 +283,29 @@ We will perform PCA on the example data which represents several measurements of
    \hline
 \end{tabular}
 \end{center}
-
+   
 
 % Here we start with some hands-on exercises
-Create a matrix with the gene expression
+Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks}
 
+%% create a matrix with the expression values from table 1: Example of Expression from Cufflinks
 \begin{framed}
 \begin{verbatim}
-	data <- 
+	samples <- c('sample_1', 'sample_2', ..., 'sample_n')
+	genes <- c(gene_1, gene_2, ..., gene_m) #numbers
+	s1 <- c(gene1_sample1, ..., gene_m_sample_1)
+	...
+	sn <- c(gene1_sample_n, gene_m_sample_n)
+
+	ExpData <- data.frame(s1, ..., sn)
+	colnames(ExpData) <- samples
+	rownames(ExpData) <- genes
 \end{verbatim}
 \end{framed}
 
+
+
+%% 
 
 xxxxxxxxxxxxxx
 
