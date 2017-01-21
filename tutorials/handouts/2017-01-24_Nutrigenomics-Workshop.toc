@@ -1,20 +1,22 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}
 \contentsline {part}{I\hspace {1em}Part I}{2}{part.1}
 \contentsline {subsection}{\numberline {1.1}Exploring the expression data}{2}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Principal Component Analysis}{2}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Principal Component Analysis}{3}{subsubsection.1.1.1}
 \contentsline {paragraph}{How PCA works}{3}{section*.6}
 \contentsline {paragraph}{}{3}{section*.7}
 \contentsline {paragraph}{Coordinate transformations}{4}{section*.10}
 \contentsline {paragraph}{}{4}{section*.11}
-\contentsline {paragraph}{Eigenvalues and Eigenvectors}{4}{section*.13}
+\contentsline {paragraph}{Eigenvalues and Eigenvectors}{5}{section*.13}
 \contentsline {paragraph}{}{5}{section*.14}
-\contentsline {paragraph}{In summary, PCA benefits are:}{6}{section*.15}
+\contentsline {paragraph}{In summary, PCA benefits are:}{7}{section*.15}
 \contentsline {paragraph}{Some tools to perform PCA include:}{7}{section*.16}
-\contentsline {paragraph}{PCA: an example}{7}{section*.17}
+\contentsline {paragraph}{Example 1: PCA for the expression of two genes}{7}{section*.17}
 \contentsline {paragraph}{}{7}{section*.18}
-\contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{9}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Interaction Network}{9}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{9}{subsubsection.1.2.1}
-\contentsline {part}{II\hspace {1em}Part II}{9}{part.2}
-\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{9}{section.2}
-\contentsline {section}{\numberline {3}Pathway Analysis}{9}{section.3}
+\contentsline {paragraph}{Example 2: PCA using example data}{9}{section*.21}
+\contentsline {paragraph}{}{10}{section*.22}
+\contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{12}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Interaction Network}{12}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{12}{subsubsection.1.2.1}
+\contentsline {part}{II\hspace {1em}Part II}{12}{part.2}
+\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{12}{section.2}
+\contentsline {section}{\numberline {3}Pathway Analysis}{12}{section.3}

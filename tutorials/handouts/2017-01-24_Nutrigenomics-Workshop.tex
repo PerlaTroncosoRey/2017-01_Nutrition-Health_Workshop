@@ -17,8 +17,8 @@
 
 
 \title{Connecting Nutrition, Health and Environment }
-\author{Perla Troncoso Rey, Wiktor Jurkowski, Earlham Institute}
-\date{26 - 27 January 2017}	 % Activate to display a given date or no date
+\author{Wiktor Jurkowski, Perla Troncoso Rey, Earlham Institute}
+\date{25 - 26 January 2017}	 % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -261,7 +261,11 @@ such that
 
 
 
-\paragraph{PCA: an example}
+
+% Here we start with some hands-on exercises
+
+% Example 1
+\paragraph{Example 1: PCA for the expression of two genes}
 \paragraph{}
 
 We will perform PCA on the example data which represents several measurements of the expression of two genes, $x$ and $y$.
@@ -284,9 +288,156 @@ We will perform PCA on the example data which represents several measurements of
 \end{tabular}
 \end{center}
    
+Create a matrix of points in 2-d space (gene expression data)
 
-% Here we start with some hands-on exercises
-Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks}
+%% create a matrix with the data from two genes
+% script
+% x <- c(2.5, 0.5, 2.2, 1.9, 3.1, 2.3, 2.0, 1.0, 1.5, 1.1)
+% y <- c(2.4, 0.7, 2.9, 2.2, 3.0, 2.7, 1.6, 1.1, 1.6, 0.9)
+% class <- c('control', 'control', 'control', 'control', 'control',
+%  'case', 'case', 'case', 'case', 'case')
+% ExpData <- data.frame(x = x, y = y, class = class)
+	
+\begin{framed}
+\begin{verbatim}
+   #n number of samples
+   name_gene_1 <- c('sample_1', 'sample_2', ..., 'sample_n') 
+   #m number of genes
+   name_gene_2 <- c(gene_1, gene_2, ..., gene_m)    
+   samples <- c(sample1, ..., sampleN)
+
+   ExpData <- data.frame(gene1 = name_gene_1, ..., gene_m = gene_name_m)	
+\end{verbatim}
+\end{framed}
+
+
+We plot these two genes in figure \ref{fig:PlotTwoGenes}
+
+
+Trends are already apparent because data is simple but this is not usually the case.
+
+Next: Analysis statistical
+
+PCA: It is best to first have centered the data with mean zero.
+(1. Calculate the mean of each of the two variables, 2.  Substract the means, Data is centered)
+
+
+%Plot data and data centered
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[width=\textwidth]{example1-plot-two-genes}
+		\caption{Plot of two genes}
+		\label{fig:PlotTwoGenes}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=\textwidth]{example1-plot-two-genes-centered}
+		\caption{Plot of two genes centered}
+		\label{fig:PlotTwoGenesCentered}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\includegraphics[width=\textwidth]{example1_plot_2PC}
+		\caption{Plot of two genes in the new coordinates}
+		\label{fig:PlotTwoGenesNewCoordiantes}
+	\end{subfigure}
+	\caption{Plot two genes expression in (a) and centered in (b) and in the new coordiantes in (c)}
+	\label{fig:PlotData}
+\end{figure}
+
+
+Now, let us calculate the covariance matrix. Covariance matrix for two variables:
+
+\[ \left[ \begin{array}{cc}
+      $Cov(x,x)$ & $Cov(x,y)$\\ 
+      $Cov(y,x)$ & $Cov(y,y)$
+      \end{array} \right]
+\]
+
+Covariance matrix for our data:
+\[
+   \left[ \begin{array}{cc}
+      0.016 & 0.615 \\ 
+      0.615 & 0.716
+      \end{array} \right]
+\]
+
+Calculate the Eigenvalues of this matrix:  1.284 and 0.0490. Eigenvalues gives the relative variance of the data in the direction defined by the Eigenvectors. From the values we can inferred that most variation is in one direction.
+
+\begin{framed}
+\begin{verbatim}
+	eigen(covariance_matrix)
+\end{verbatim}
+\end{framed}
+
+The corresponding eigenvector are then placed in a matrix in descending order of eigenvalue:
+
+\[
+   \left[ \begin{array}{cc}
+	0.6778734 & $-0.7351787$ \\
+	0.7351787 & 0.6778734
+      \end{array} \right]
+\]
+
+The transform of this will perform the coordinate transformation:
+
+\[
+   W^T = 
+   \left[ \begin{array}{cc}
+	0.6778734 & 0.7351787 \\
+	$-0.7351787$ & 0.6778734
+      \end{array} \right]
+\]
+
+This is an orthogonal matrix which performs a rotated-axis coordinate transformation.
+We can transform our data matrix so that the data is represented in the new coordinates:  
+
+\[
+   D_{PCA} = W^T D
+\]
+
+\[
+   D_{PCA} = 
+   \left[ \begin{array}{cc}
+	0.6778734 & 0.7351787 \\
+	$-0.7351787$ & 0.6778734
+   \end{array} \right]
+   %
+   \left[ \begin{array}{cccccccccc}
+      0.69 & $-1.31$ & 0.39 & 0.09 & 1.29 & 0.49 & 0.19 & $-0.81$ & $-0.31$ & $-0.71$ \\
+      0.49 & $-1.21$ & 0.99 & 0.29 & 1.09 & 0.79 & $-0.31$ & $-0.81$ & $-0.31$ & $-1.01$
+   \end{array} \right]
+\]
+
+\[
+   =
+   %
+   \left[ \begin{array}{cccccccccc}
+      0.83 & $-1.8$ & 0.99 & 0.27 & 1.8 & 0.91 & $-0.099$ & $-1.1$ & $-0.44$ & $-1.2$ \\
+      $-0.18$ & 0.14 & 0.38 & 0.13 & $-0.21$ & 0.18 & $-0.35$ & 0.046 & 0.018 & $-0.16$
+   \end{array} \right]
+\]
+
+
+The data are plotted in the new coordinate axis in figure \ref{fig:PlotTwoGenesNewCoordiantes}, where each coordinate is called principal component. 
+The first coordinate aligns with the direction in the expression space where has the most variation. Subsequent coordinates would align with directions with descending degrees of variation. This is why we are careful to order according to the size of the eigenvalues.
+Thus, PCA is capturing as much variation in the first component as possible, then the same for the second coordinate, and so on.
+In the case of our data, all the meaningful variation sees to have been captured with the first coordinate, or the first principal component. Specially compared to the second component which would seem to be random scatter. So we have reduced the dimensionality of our data from two to one. In cases when dealing with thousands of genes, PCA might be able to capture most of the variation of the data in with only two or three principal components. Thus making it easier to visualise it, which is one of the main motivations of performing PCA.
+
+
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{example1_plot_2PC}
+	\caption{Plot of two genes in the new coordinates}
+	\label{fig:PlotTwoGenesNewCoordiantes}
+\end{figure}
+
+
+
+
+% Example 2: loading example data from file
+\paragraph{Example 2: PCA using example data}
+\paragraph{}
+
+Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks} by entering the first three genes for samples 1, 2, 3 and 4.
 
 %% create a matrix with the expression values from table 1: Example of Expression from Cufflinks
 \begin{framed}
@@ -304,16 +455,6 @@ Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks}
 \end{framed}
 
 
-
-%% 
-
-xxxxxxxxxxxxxx
-
-
-
-
-Example 1:
-
 PCA Plot of gene expression data 
 
 Each dot is a gene expression from a sample in each category (class) from a patient, and is coloured by its sub-type
@@ -323,14 +464,13 @@ and the numbers represent the percentage of variance that is captured by each co
 
 The first component captures the most variance, whereas the second and third capture only a small percentage
 
-Dots of the same subtype tend to cluster together which means that samples of the same subtype have similar transcritption profiles.
-
+Dots of the same subtype tend to cluster together which means that samples of the same subtype have similar expression profiles.
 
 The distance on the dots on each axis should not be treated equally (as each component captures a different percentage of variance). difference on the first component should be taken into more consideration.
 
 
 
-Example 2: Random data
+ Random data
 
 Simulated gene expression data by random numbers
 
@@ -398,7 +538,31 @@ groups
 
 
 
+In summary, PCA is a method of revealing underling trends in large amounts of data. PCA reduces high dimensional data to just a few principal components which hopefully capture most of the variation of the data and allows inferring meaningful structure.
+
+A new coordinate system is constructed by rotating the axes (each representing a gene). The first new coordinate, or first principal component, is the direction in which the data varies most, then the second component, and so on. PCA allows to select a few new variables which contain most of the variation of the data which can also be visualised.
+
+
 \subsubsection{Hierarchical Clustering}
+
+Hierarchical Clustering is another way to visualise high dimensional data. 
+It clusters observations by distance and builds a hierarchical structure 
+It gives more detailed information of the differences among clusters, for example, what genes contributes the most to the differences between two clusters.
+
+Figure: Example of clustergram
+The clustergram is made of a heat map in the middle and dendograms in the left and top, with row and column labels on the right and bottom (depending on the number of genes and samples), and a scale bar. 
+Each column is a sample expression profile, and each row represents a gene.
+The colours suggests relative expression values, where red indicates high expression values and blue indicates low expression values. Ideally, samples of the same type will cluster together
+
+
+Figure: Example of clustergram of simulated random numbers
+No distinct clusters are observed. High and low expression values (red and blue colours) are mixed all together and the sample of the same type are mixed.
+
+
+Hierarchical clustering uses a distance metric (typically Euclidean but could be correlation, Hamming distance, etc.) between each pair of genes to create a hierarchical tree-like structure of the data. Then it uses a linkage function to calculate the distance between clusters. For more details please see \cite{Clustergram}. 
+
+EXAMPLE USING MULTIPEN
+
 
 \subsection{Interaction Network}
 \subsubsection{Compile the network with Cytoscape}
@@ -423,6 +587,15 @@ To run the R script type in the terminal:
 
 Rscript enrichmentGO.R ../ExampleOutputs/MultiPEN\-Rankings\_lambda0.0001.txt output/
 
+
+
+
+% Boxed code
+%\begin{framed}
+%\begin{verbatim}
+%	
+%\end{verbatim}
+%\end{framed}
 
 
 %Example to create a list
