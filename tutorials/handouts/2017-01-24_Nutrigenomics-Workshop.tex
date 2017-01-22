@@ -237,6 +237,7 @@ such that
 
 
 
+
 \paragraph{In summary, PCA benefits are:}
 
 \begin{itemize}
@@ -433,26 +434,90 @@ In the case of our data, all the meaningful variation sees to have been captured
 \paragraph{Example 2: PCA using example data}
 \paragraph{}
 
-For this example, we will load a file with gene expression data from a study in fatty liver \cite{Wruck2015}. We will use the stats package in R for computing PCA and will show how to visualise it using the function ggbiplot, which was implemented by Vince Q Vu \cite{Vu2016}. 
+In this example we will use a publicly available dataset to explore expression data. We will use the stats package in R for computing PCA and will show how to visualise it using the function ggbiplot, which was implemented by Vince Q Vu \cite{Vu2016}. 
 
-%% create a matrix with the expression values from table 1: Example of Expression from Cufflinks
+
+Gene expression data is usually stored in a tab delimited text file. The extension of such files could be .csv, .soft, .xls(x), etc. Use Excel, R or MATLAB to open and preview the file. It is important to mention that gene expression values must be normalised before PCA plotting.
+
+The dataset used in this example is from a study on non-alcoholic fatty liver disease, published in 2015 by Wruck et al. \cite{Wruck2015}. The transcriptomics data was extracted from nine from patients that were recruited in the Multidisciplinary Obesity Research project at the Medical University of Graz, Austria, or at the Interdisciplinary Adipositas Center at the Kantonsspital St Gallen, Switzerland. Each sample is described in table \ref{tab:ExpressionDataWruck}) in terms of gender, age, BMI, percent of steatosis and steatosis grouping.
+
+\begin{table}[h]
+	\centering
+	\caption{Details of the samples for microarray data for a study in fatty liver \cite{Wruck2015}}
+	\begin{tabular}{c | c | c | c | c | c}
+		\hline
+		ID & gender & age & BMI & \% steatosis & steatosis grouping \\
+		\hline
+                H0004 & f & 54 & 47 & 10 & obese, low steatosis \\
+                H0007 & f & 33 & 51 & 40 & obese, high steatosis \\
+                H0008 & m & 61 & 46 & 40 & obese, high steatosis \\
+                H0009 & f & 48 & 49 & 5 - 10 & obese, low steatosis \\
+                H0011 & f & 58 & 45 & 70 & obese, high steatosis \\
+                H0012 & f & 50 & 35 & 0 & obese, low steatosis \\
+                H0018 & f & 35 & 41 & 30 - 40 & obese, high steatosis \\
+                H0021 & m & 49 & 41 & 0 & no steatosis \\
+                H0022 & m & 45 & 49 & 40 & obese, high steatosis
+		\label{tab:ExpressionDataWruck}
+	\end{tabular}
+\end{table}
+
+
+The gene expression matrix, gene annotation and sample annotation can be found in the following files:
+
+\begin{itemize}
+   \item {\bf gene-expression-table.txt}: gene expression table. This table is available as reference but for the simplicity we will use the following files which contain the expression data separately from the gene annotation, the names of samples, and the steatosis groups per sample.
+   \item {\bf gene-expression.txt}: numerical matrix for the gene expression values, where the columns represent genes and the rows represent the samples. This is the transpose of the expression matrix because the function requires the rows of the input matrix to be observations and the columns features, which means rows to be the gene expression profiles (samples) and columns to be the genes.
+   \item {\bf gene-annotation.txt}: string vector containing the gene names for the expression data
+   \item {\bf samples.txt}: name of each sample
+   \item {\bf groups.txt}: name of the steatosis group for each sample
+\end{itemize}
+
+
+Now, we can load the data into R to begin the analysis. We can either load the gene expression table by typing:
+
+% Load data from files
 \begin{framed}
 \begin{verbatim}
-	samples <- c('sample_1', 'sample_2', ..., 'sample_n')
-	genes <- c(gene_1, gene_2, ..., gene_m) #numbers
-	s1 <- c(gene1_sample1, ..., gene_m_sample_1)
-	...
-	sn <- c(gene1_sample_n, gene_m_sample_n)
+#Expression data is saved in a tabular txt file
+#The data is in a numerical matrix with no headers
+	ExpData <- read.delim(FileName, header = FALSE, sep = '\t', 
+		stringsAsFactors = FALSE)
+	Annotation <- read.delim(FileName, header = TRUE, sep = '\t', 
+		stringsAsFactors = FALSE)
+	samples <- read.delim(FileName, header = TRUE, sep = '\t', 
+		stringsAsFactors = FALSE)
+	genes.class <- read.delim(FileName, header = TRUE, sep = '\t', 
+		stringsAsFactors = FALSE)
+\end{verbatim}
+\end{framed}
 
-	ExpData <- data.frame(s1, ..., sn)
-	colnames(ExpData) <- samples
-	rownames(ExpData) <- genes
+Next, calculate the principal components using {\it prcomp} and plot the first two components. Then plot the first two components using {\it ggbiplot} \cite{Vu2016}:    
+
+\begin{framed}
+\begin{verbatim}
+## Computing the principal components using prcomp
+        genes.pca <- prcomp(gene_expression_data)
+        
+	# Plot the components using ggbiplot
+        library(ggbiplot)
+        
+        g <- ggbiplot(genes.pca, obs.scale = 1, var.scale = 1,
+                      groups = genes.class$groups, ellipse = TRUE,
+                      circle = FALSE, var.axes = FALSE) +
+          scale_color_discrete(name = '') +
+          theme(legend.direction = 'horizontal', legend.position = 'top')
+        
+        print(g)
 \end{verbatim}
 \end{framed}
 
 
-Plot using ggbiplot \cite{Vu2016} is shown in figure \ref{fig:PCAFattyLiver}.
-The ellipse in the figure represents the normal data ellipse for each group for the details of 68\%. 
+\noindent {\it ggbiplot} produces a plot which is shown in figure \ref{fig:PCAFattyLiver}.
+Each dot is a gene expression from a sample in each category (group) from a patient, and is coloured by its type.
+The two axis are the first two principal components and the numbers represent the percentage of variance that is captured by each component. Typically, the first three component captures the most variance, whereas following components capture only a small percentage of variance.
+Dots of the same type tend to cluster together which means that samples of the same type have similar expression profiles.
+The distance on the dots on each axis should not be treated equally (as each component captures a different percentage of variance). Thus, the difference on the first component should be taken into more consideration.
+Furthermore, the ellipse in the figure represents the normal data ellipse for each group for the details of 68\%. 
 
 \begin{figure}[!h]
 	\includegraphics[width=\textwidth]{example2-first2components-fattyLiverData}
@@ -461,88 +526,21 @@ The ellipse in the figure represents the normal data ellipse for each group for 
 \end{figure}
 
 
-PCA Plot of gene expression data 
-
-Each dot is a gene expression from a sample in each category (class) from a patient, and is coloured by its sub-type
-
-The three axis are the three principal components 
-and the numbers represent the percentage of variance that is captured by each component
-
-The first component captures the most variance, whereas the second and third capture only a small percentage
-
-Dots of the same subtype tend to cluster together which means that samples of the same subtype have similar expression profiles.
-
-The distance on the dots on each axis should not be treated equally (as each component captures a different percentage of variance). difference on the first component should be taken into more consideration.
 
 
+TASK:
+Plot the three principal components for the expression data.
+Figure \ref{fig:example2-PCA-3D} shows an example of such plot.
 
- Random data
-
-Simulated gene expression data by random numbers
-
-This is how a random dataset would look like in a PCA plot:
-
-- dots of different classes mix all together
-
-- the first three components capture almost equal and small variance
-
-- from the plot once would conclude that the different subtypes are not distinct from each other or that subtype has no influence on tumor cell transcriptome
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{example2-PCA-3D}
+	\caption{The first three principal components for gene expression data in a study on Fatty Liver \cite{Wruck2015}. Note: the plot was generated using MATLAB, can you plot the three components in R}
+	\label{fig:example2-PCA-3D}
+\end{figure}
 
 
-
-DATA PREPARATION
-
-- Use microarray gene expression data as an example
-
-- Gene expression data is usually stored in a tab delimited text file. The extension of such files could be .csv, .soft, .xls(x), etc. Use Excell of Sublimetext to open and preview the file.
-
-- Gene expression values must be normalised before PCA plotting.
-
-
-PCA
-
-- We need to transpose the matrix because the function requires the rows of the input matrix to be observations and the columns variable, which means rows to be the gene expression profiles and columns to be the genes.
-
-- There are three outputs to the function:
-
-1. The first output is the coefficient matrix (not used here!)
-
-2. The second output is the scores, which are the transformed coordinates by PCA.
-
-3. The third output, pca variance, stores how much variance each component captures.
-
-
-Looking into detail on the outputs:
-
-- The first several components capture most variance of the data.
-
-- The score matrix has the same arrangement as expression matrix, which are rows as gene expression profiles and columns are genes. We pick the first three columns, namely the first three components. The first component will be the x-axis, the second to be the y-axis and the third component to be the z-axis.
-
-Running PCA
-
-%in R using prcomp from the stats package
-%
-%Computing the Principal Components
-%
-%load the data
-%
-%normalise data
-%log transform (as suggested by xxxxx]
-%log.data <- log
-%
-%Call prcomp with center and scale equal to TRUE to standardise the variables prior PCA
-
-
-
-PCA Plot using MultiPEN
-
-Parameters:
-
-gene expression data
-
-groups
-
-
+\paragraph{Summary}
+\paragraph{}
 
 In summary, PCA is a method of revealing underling trends in large amounts of data. PCA reduces high dimensional data to just a few principal components which hopefully capture most of the variation of the data and allows inferring meaningful structure.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  22 JAN 2017 14:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  22 JAN 2017 20:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -417,19 +417,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lof=\write5
 \openout5 = `2017-01-24_Nutrigenomics-Workshop.lof'.
 
+ [1
 
-(./2017-01-24_Nutrigenomics-Workshop.lot)
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./2017
+-01-24_Nutrigenomics-Workshop.lot)
 \tf@lot=\write6
 \openout6 = `2017-01-24_Nutrigenomics-Workshop.lot'.
 
- [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 44.
 
-<images/example_expression_data.png, id=91, 350.30875pt x 283.0575pt>
+<images/example_expression_data.png, id=95, 350.30875pt x 283.0575pt>
 File: images/example_expression_data.png Graphic file (type png)
 
 <use images/example_expression_data.png>
@@ -445,6 +445,7 @@ Overfull \hbox (71.06837pt too wide) in paragraph at lines 65--82
  [][] 
  []
 
+[2]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -452,8 +453,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 87.
 
-[2] [3 <./images/example_expression_data.png>]
-<images/same-mean_different-variance.png, id=120, 354.32375pt x 397.485pt>
+[3 <./images/example_expression_data.png>]
+<images/same-mean_different-variance.png, id=126, 354.32375pt x 397.485pt>
 File: images/same-mean_different-variance.png Graphic file (type png)
 
 <use images/same-mean_different-variance.png>
@@ -464,7 +465,7 @@ line 114.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/examples-correlation.png, id=122, 413.545pt x 316.18124pt>
+<images/examples-correlation.png, id=128, 413.545pt x 316.18124pt>
 File: images/examples-correlation.png Graphic file (type png)
 
 <use images/examples-correlation.png>
@@ -476,7 +477,7 @@ Package pdftex.def Info: images/examples-correlation.png used on input line 137
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4]
-<images/example-coordinate-transform.png, id=132, 701.62125pt x 342.27875pt>
+<images/example-coordinate-transform.png, id=138, 701.62125pt x 342.27875pt>
 File: images/example-coordinate-transform.png Graphic file (type png)
 
 <use images/example-coordinate-transform.png>
@@ -487,49 +488,48 @@ line 156.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./images/same-mean_different-variance.png>]
+[5 <./images/same-mean_different-variance.png>] [6 <./images/examples-correlati
+on.png> <./images/example-coordinate-transform.png>]
 Overfull \hbox (13.80244pt too wide) detected at line 200
 [] [] [][] [] [] []
  []
 
-[6 <./images/examples-correlation.png> <./images/example-coordinate-transform.p
-ng>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 244.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 245.
 
- (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 244.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
  [7]
-<images/example1-plot-two-genes.png, id=158, 1003.75pt x 641.39626pt>
+<images/example1-plot-two-genes.png, id=166, 1003.75pt x 641.39626pt>
 File: images/example1-plot-two-genes.png Graphic file (type png)
 
 <use images/example1-plot-two-genes.png>
 Package pdftex.def Info: images/example1-plot-two-genes.png used on input line 
-323.
+324.
 (pdftex.def)             Requested size: 188.21288pt x 120.26149pt.
 
-<images/example1-plot-two-genes-centered.png, id=159, 1000.73875pt x 618.31pt>
+<images/example1-plot-two-genes-centered.png, id=167, 1000.73875pt x 618.31pt>
 File: images/example1-plot-two-genes-centered.png Graphic file (type png)
 
 <use images/example1-plot-two-genes-centered.png>
 Package pdftex.def Info: images/example1-plot-two-genes-centered.png used on in
-put line 328.
+put line 329.
 (pdftex.def)             Requested size: 188.21288pt x 116.28192pt.
 
-<images/example1_plot_2PC.png, id=160, 996.72375pt x 624.3325pt>
+<images/example1_plot_2PC.png, id=168, 996.72375pt x 624.3325pt>
 File: images/example1_plot_2PC.png Graphic file (type png)
 
 <use images/example1_plot_2PC.png>
-Package pdftex.def Info: images/example1_plot_2PC.png used on input line 333.
+Package pdftex.def Info: images/example1_plot_2PC.png used on input line 334.
 (pdftex.def)             Requested size: 188.21288pt x 117.89085pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8]
-Overfull \hbox (80.66365pt too wide) detected at line 405
+Overfull \hbox (80.66365pt too wide) detected at line 406
 \OML/cmm/m/it/10.95 D[] \OT1/cmr/m/n/10.95 = [] []
  []
 
@@ -538,26 +538,43 @@ tered.png> <./images/example1_plot_2PC.png>]
 File: images/example1_plot_2PC.png Graphic file (type png)
 
 <use images/example1_plot_2PC.png>
-Package pdftex.def Info: images/example1_plot_2PC.png used on input line 424.
+Package pdftex.def Info: images/example1_plot_2PC.png used on input line 425.
 (pdftex.def)             Requested size: 418.25368pt x 261.97969pt.
- [10]
-<images/example2-first2components-fattyLiverData.png, id=184, 936.49875pt x 689
-.57625pt>
+ [10] [11]
+Overfull \hbox (20.20052pt too wide) in paragraph at lines 511--511
+[]          \OT1/cmtt/m/n/10.95 theme(legend.direction = 'horizontal', legend.p
+osition = 'top')[] 
+ []
+
+[12]
+<images/example2-first2components-fattyLiverData.png, id=203, 914.41624pt x 677
+.53125pt>
 File: images/example2-first2components-fattyLiverData.png Graphic file (type pn
 g)
  <use images/example2-first2components-fattyLiverData.png>
 Package pdftex.def Info: images/example2-first2components-fattyLiverData.png us
-ed on input line 458.
-(pdftex.def)             Requested size: 418.25368pt x 307.98106pt.
- [11 <./images/example2-first2components-fattyLiverData.png>] [12] [13]
-(./2017-01-24_Nutrigenomics-Workshop.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 675.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 675.
+ed on input line 523.
+(pdftex.def)             Requested size: 418.25368pt x 309.9003pt.
 
-(./2017-01-24_Nutrigenomics-Workshop.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 675.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 675.
+<images/example2-PCA-3D.png, id=207, 1124.2pt x 843.15pt>
+File: images/example2-PCA-3D.png Graphic file (type png)
+
+<use images/example2-PCA-3D.png>
+Package pdftex.def Info: images/example2-PCA-3D.png used on input line 536.
+(pdftex.def)             Requested size: 418.25368pt x 313.68457pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13 <./images/example2-first2components-fattyLiverData.png>] [14 <./images/exam
+ple2-PCA-3D.png (PNG copy)>] (./2017-01-24_Nutrigenomics-Workshop.bbl [15])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
+
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
+ (./2017-01-24_Nutrigenomics-Workshop.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 673.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 673.
 Package rerunfilecheck Info: File `2017-01-24_Nutrigenomics-Workshop.out' has n
 ot changed.
 (rerunfilecheck)             Checksum: 1E42D75C7B1FD7BB17F9065762427486;678.
@@ -565,16 +582,16 @@ ot changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 675.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 673.
  ) 
 Here is how much of TeX's memory you used:
- 7645 strings out of 493089
- 115868 string characters out of 6134841
- 215217 words of memory out of 5000000
- 10973 multiletter control sequences out of 15000+600000
+ 7658 strings out of 493089
+ 116125 string characters out of 6134841
+ 215547 words of memory out of 5000000
+ 10979 multiletter control sequences out of 15000+600000
  12794 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,583b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,41p,612b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -588,11 +605,11 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (14 pages, 575577 bytes
+Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (16 pages, 641867 bytes
 ).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 238 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

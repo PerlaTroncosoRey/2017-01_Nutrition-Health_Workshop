@@ -5,17 +5,19 @@
 \contentsline {paragraph}{How PCA works}{3}{section*.6}
 \contentsline {paragraph}{}{3}{section*.7}
 \contentsline {paragraph}{Coordinate transformations}{4}{section*.10}
-\contentsline {paragraph}{}{4}{section*.11}
+\contentsline {paragraph}{}{5}{section*.11}
 \contentsline {paragraph}{Eigenvalues and Eigenvectors}{5}{section*.13}
-\contentsline {paragraph}{}{5}{section*.14}
+\contentsline {paragraph}{}{6}{section*.14}
 \contentsline {paragraph}{In summary, PCA benefits are:}{7}{section*.15}
 \contentsline {paragraph}{Example 1: PCA for the expression of two genes}{7}{section*.16}
 \contentsline {paragraph}{}{7}{section*.17}
 \contentsline {paragraph}{Example 2: PCA using example data}{10}{section*.20}
-\contentsline {paragraph}{}{10}{section*.21}
-\contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{13}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Interaction Network}{13}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{13}{subsubsection.1.2.1}
-\contentsline {part}{II\hspace {1em}Part II}{13}{part.2}
-\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{13}{section.2}
-\contentsline {section}{\numberline {3}Pathway Analysis}{14}{section.3}
+\contentsline {paragraph}{}{11}{section*.21}
+\contentsline {paragraph}{Summary}{13}{section*.25}
+\contentsline {paragraph}{}{13}{section*.26}
+\contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{14}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Interaction Network}{15}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{15}{subsubsection.1.2.1}
+\contentsline {part}{II\hspace {1em}Part II}{15}{part.2}
+\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{15}{section.2}
+\contentsline {section}{\numberline {3}Pathway Analysis}{15}{section.3}
