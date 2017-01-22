@@ -2,5 +2,6 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Two distributions with the same mean but different variance.\relax }}{5}{figure.caption.8}
 \contentsline {figure}{\numberline {3}{\ignorespaces Examples of correlation\relax }}{6}{figure.caption.9}
 \contentsline {figure}{\numberline {4}{\ignorespaces Example of a coordinate transform\relax }}{6}{figure.caption.12}
-\contentsline {figure}{\numberline {5}{\ignorespaces Plot two genes expression in (a) and centered in (b) and in the new coordiantes in (c)\relax }}{8}{figure.caption.19}
-\contentsline {figure}{\numberline {6}{\ignorespaces Plot of two genes in the new coordinates\relax }}{10}{figure.caption.20}
+\contentsline {figure}{\numberline {5}{\ignorespaces Plot: in (a) shows the expression of two genes, (b) the expression of the same two genes after centering the data (expression has zero mean), (c) gene expression is plot in the new coordiantes (PCA)\relax }}{9}{figure.caption.18}
+\contentsline {figure}{\numberline {6}{\ignorespaces Plot of two genes in the new coordinates\relax }}{10}{figure.caption.19}
+\contentsline {figure}{\numberline {7}{\ignorespaces The first two principal components for gene expression data in a study on Fatty Liver. The plot was generated using the R package ggbiplot \cite {Vu2016}\relax }}{11}{figure.caption.22}

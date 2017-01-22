@@ -31,11 +31,11 @@
 
 \section{Introduction}
 
-In this practice, we will look at how to explore  gene expression data (which could be extracted from microarray or RNA sequencing data). In the first part of this practical session we will see general techniques to explore the patterns or structure of the data using Principal Component Analysis, PCA, and Hierarchical Clustering. We will then look into compiling an interaction network using an online resource and how to visualise the network using Cytoscape \cite{}.
+In this practice, we will look at how to explore  gene expression data (which could be extracted from microarray or RNA sequencing data). In the first part of this practical session we will see general techniques to explore the patterns or structure of the data using Principal Component Analysis, PCA, and Hierarchical Clustering. We will then look into compiling an interaction network using an online resource and how to visualise the network using Cytoscape \cite{Shannon2003} \cite{Smoot2011}.
 
 In the second part, we will look at ways to rank genes (and/or metabolites) using approaches based on logistic regression. We will then perform pathway analysis using those rankings.
 
-We will use a publicly available data from a study on fatty liver disease of obese and lean human subjects \cite{}.
+We will use a publicly available data from a study on fatty liver disease of obese and lean human subjects \cite{Wruck2015}.
 
 
 
@@ -107,7 +107,7 @@ The variance provides the the spread of the data:
 \end{equation}
 
 
-For example, \ref{fig:MeanVariance} show two distribution with the same mean but different variance. 
+For example, figure \ref{fig:MeanVariance} shows two distributions with the same mean but different variance. This means that the data points are at the same location but with a different strength. Thus, the third statistic we'll need is the covariance.
 
 \begin{figure}[!h]
 	\centering
@@ -116,8 +116,6 @@ For example, \ref{fig:MeanVariance} show two distribution with the same mean but
 	\label{fig:MeanVariance}
 \end{figure}
 
-
-(i.e. the data points are at the same location but with a different strength. So the third statistic we'll need is the covariance)
 
 The covariance represents the degree of co-dependence of two variables, i.e., it measures the co-dependency of two variables, given by:
 
@@ -132,13 +130,13 @@ Increases with increasing co-dependency and variance. Just as the variance measu
 \end{equation}
 
 The covariance also increases in magnitude as the variance of each of the two datasets increases.
-
+Correlation values can be negative or positive, indicating whether the values of two variables increase or decrease together. Figure \ref{fig:examples-correlation} shows some examples of correlation.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{examples-correlation}
 	\caption{Examples of correlation}
-	\label{fig:MeanVariance}
+	\label{fig:examples-correlation}
 \end{figure}
 
 
@@ -171,7 +169,7 @@ When a transformation matrix maps a vector to a multiple of itself, then the vec
 T x = \lambda x
 \end{equation} 
 
-$\lambda$ are the Eigenvalues and $x$ are the Eigenvectors. A matrix formed from the Eigenvectors placed in the columns is orthogonal.
+\noindent where $\lambda$ are the Eigenvalues and $x$ are the Eigenvectors. A matrix formed from the Eigenvectors placed in the columns is orthogonal.
 
 In general terms, PCA uses covariants to encode the structure in the data and then eigenvectors to devise a new set of coordinates that best reveals the structure by finding the appropriate set of directions. One result from linear algebra is that if the eigenvectors are placed next to each other then the result is an orthogonal matrix that performs a coordinate transformation. This is central for PCA.
 
@@ -248,15 +246,9 @@ such that
    \item Shows quantified difference among observations
 
    \item Used to assess data quality and discover relationships between data points
-\end{itemize}
+   
+   \item Some software to compute PCA is available in MATLAB and R (using package stats)
 
-
-
-\paragraph{Some tools to perform PCA include:}
-
-\begin{itemize}
-   \item MATLAB
-   \item R
 \end{itemize}
 
 
@@ -268,7 +260,7 @@ such that
 \paragraph{Example 1: PCA for the expression of two genes}
 \paragraph{}
 
-We will perform PCA on the example data which represents several measurements of the expression of two genes, $x$ and $y$.
+We will use R and the package stats to perform PCA. We will use an example data which represents several measurements of the expression of two genes, $x$ and $y$, with the following values:
 
 \begin{center}
 \begin{tabular}{c|c}
@@ -288,7 +280,8 @@ We will perform PCA on the example data which represents several measurements of
 \end{tabular}
 \end{center}
    
-Create a matrix of points in 2-d space (gene expression data)
+
+We start by create a matrix of points in 2-d space (gene expression data) by using the following syntax:
 
 %% create a matrix with the data from two genes
 % script
@@ -301,25 +294,26 @@ Create a matrix of points in 2-d space (gene expression data)
 \begin{framed}
 \begin{verbatim}
    #n number of samples
-   name_gene_1 <- c('sample_1', 'sample_2', ..., 'sample_n') 
+   name_gene_1 <- c(values_in_sample1, ..., _value_in_sampleN) 
    #m number of genes
    name_gene_2 <- c(gene_1, gene_2, ..., gene_m)    
    samples <- c(sample1, ..., sampleN)
-
-   ExpData <- data.frame(gene1 = name_gene_1, ..., gene_m = gene_name_m)	
+   # expression matrix
+   Exp <- data.frame(gene1 = name_gene1, ..., geneM = name_geneM)	
 \end{verbatim}
 \end{framed}
 
 
-We plot these two genes in figure \ref{fig:PlotTwoGenes}
+Then, we plot these two genes (see figure \ref{fig:PlotTwoGenes}) using the command: 
+
+\begin{framed}
+\begin{verbatim}
+   plot(x, y)
+\end{verbatim}
+\end{framed}
 
 
-Trends are already apparent because data is simple but this is not usually the case.
-
-Next: Analysis statistical
-
-PCA: It is best to first have centered the data with mean zero.
-(1. Calculate the mean of each of the two variables, 2.  Substract the means, Data is centered)
+\noindent Trends are already apparent because data is simple but this is not usually the case. We then perform an statistical analysis using Principal Component Analysis. Before starting with PCA, it is best to first have centered the data with mean zero. This is, calculate the mean of each of the two variables and substracted to obtain centered data (shown in figure \ref{fig:PlotTwoGenesCentered}). 
 
 
 %Plot data and data centered
@@ -327,20 +321,20 @@ PCA: It is best to first have centered the data with mean zero.
 	\centering
 	\begin{subfigure}{.45\textwidth}
 		\includegraphics[width=\textwidth]{example1-plot-two-genes}
-		\caption{Plot of two genes}
+		\caption{}
 		\label{fig:PlotTwoGenes}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth]{example1-plot-two-genes-centered}
-		\caption{Plot of two genes centered}
+		\caption{}
 		\label{fig:PlotTwoGenesCentered}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 		\includegraphics[width=\textwidth]{example1_plot_2PC}
-		\caption{Plot of two genes in the new coordinates}
+		\caption{}
 		\label{fig:PlotTwoGenesNewCoordiantes}
 	\end{subfigure}
-	\caption{Plot two genes expression in (a) and centered in (b) and in the new coordiantes in (c)}
+	\caption{Plot: in (a) shows the expression of two genes, (b) the expression of the same two genes after centering the data (expression has zero mean),  (c) gene expression is plot in the new coordiantes (PCA)}
 	\label{fig:PlotData}
 \end{figure}
 
@@ -353,7 +347,7 @@ Now, let us calculate the covariance matrix. Covariance matrix for two variables
       \end{array} \right]
 \]
 
-Covariance matrix for our data:
+\noindent and Covariance matrix for our data:
 \[
    \left[ \begin{array}{cc}
       0.016 & 0.615 \\ 
@@ -361,7 +355,7 @@ Covariance matrix for our data:
       \end{array} \right]
 \]
 
-Calculate the Eigenvalues of this matrix:  1.284 and 0.0490. Eigenvalues gives the relative variance of the data in the direction defined by the Eigenvectors. From the values we can inferred that most variation is in one direction.
+The Eigenvalues of this matrix are:  1.284 and 0.0490. Eigenvalues gives the relative variance of the data in the direction defined by the Eigenvectors. From the values we can inferred that most variation is in one direction. To calculate the Eigenvalues in R use type:
 
 \begin{framed}
 \begin{verbatim}
@@ -378,7 +372,7 @@ The corresponding eigenvector are then placed in a matrix in descending order of
       \end{array} \right]
 \]
 
-The transform of this will perform the coordinate transformation:
+The transpose of this Eigenvectos will perform the coordinate transformation:
 
 \[
    W^T = 
@@ -388,12 +382,14 @@ The transform of this will perform the coordinate transformation:
       \end{array} \right]
 \]
 
-This is an orthogonal matrix which performs a rotated-axis coordinate transformation.
+\noindent This is an orthogonal matrix which performs a rotated-axis coordinate transformation.
 We can transform our data matrix so that the data is represented in the new coordinates:  
 
 \[
    D_{PCA} = W^T D
 \]
+
+\noindent which in our example is:
 
 \[
    D_{PCA} = 
@@ -418,7 +414,7 @@ We can transform our data matrix so that the data is represented in the new coor
 \]
 
 
-The data are plotted in the new coordinate axis in figure \ref{fig:PlotTwoGenesNewCoordiantes}, where each coordinate is called principal component. 
+The we can plot our data in the new coordinates, as shown in figure \ref{fig:PlotTwoGenesNewCoordiantes}, where each coordinate is called principal component. 
 The first coordinate aligns with the direction in the expression space where has the most variation. Subsequent coordinates would align with directions with descending degrees of variation. This is why we are careful to order according to the size of the eigenvalues.
 Thus, PCA is capturing as much variation in the first component as possible, then the same for the second coordinate, and so on.
 In the case of our data, all the meaningful variation sees to have been captured with the first coordinate, or the first principal component. Specially compared to the second component which would seem to be random scatter. So we have reduced the dimensionality of our data from two to one. In cases when dealing with thousands of genes, PCA might be able to capture most of the variation of the data in with only two or three principal components. Thus making it easier to visualise it, which is one of the main motivations of performing PCA.
@@ -437,7 +433,7 @@ In the case of our data, all the meaningful variation sees to have been captured
 \paragraph{Example 2: PCA using example data}
 \paragraph{}
 
-Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks} by entering the first three genes for samples 1, 2, 3 and 4.
+For this example, we will load a file with gene expression data from a study in fatty liver \cite{Wruck2015}. We will use the stats package in R for computing PCA and will show how to visualise it using the function ggbiplot, which was implemented by Vince Q Vu \cite{Vu2016}. 
 
 %% create a matrix with the expression values from table 1: Example of Expression from Cufflinks
 \begin{framed}
@@ -453,6 +449,16 @@ Create a matrix with the gene expression from \autoref{tab:ExpressionCufflinks} 
 	rownames(ExpData) <- genes
 \end{verbatim}
 \end{framed}
+
+
+Plot using ggbiplot \cite{Vu2016} is shown in figure \ref{fig:PCAFattyLiver}.
+The ellipse in the figure represents the normal data ellipse for each group for the details of 68\%. 
+
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{example2-first2components-fattyLiverData}
+	\caption{The first two principal components for gene expression data in a study on Fatty Liver. The plot was generated using the R package ggbiplot \cite{Vu2016}}
+	\label{fig:PCAFattyLiver}
+\end{figure}
 
 
 PCA Plot of gene expression data 
