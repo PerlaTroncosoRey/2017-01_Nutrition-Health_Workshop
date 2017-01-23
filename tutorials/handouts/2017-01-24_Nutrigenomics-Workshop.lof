@@ -5,4 +5,5 @@
 \contentsline {figure}{\numberline {5}{\ignorespaces Plot: in (a) shows the expression of two genes, (b) the expression of the same two genes after centering the data (expression has zero mean), (c) gene expression is plot in the new coordiantes (PCA)\relax }}{9}{figure.caption.18}
 \contentsline {figure}{\numberline {6}{\ignorespaces Plot of two genes in the new coordinates\relax }}{10}{figure.caption.19}
 \contentsline {figure}{\numberline {7}{\ignorespaces The first two principal components for gene expression data in a study on Fatty Liver. The plot was generated using the R package ggbiplot \cite {Vu2016}\relax }}{13}{figure.caption.23}
-\contentsline {figure}{\numberline {8}{\ignorespaces The first three principal components for gene expression data in a study on Fatty Liver \cite {Wruck2015}. Note: the plot was generated using MATLAB, can you plot the three components in R\relax }}{14}{figure.caption.24}
+\contentsline {figure}{\numberline {8}{\ignorespaces The first three principal components for gene expression data in a study on Fatty Liver \cite {Wruck2015}. Note: the plot was generated using MATLAB, can you plot the three components in R\relax }}{14}{figure.caption.26}
+\contentsline {figure}{\numberline {9}{\ignorespaces Example of hierarchical clustering using the MATLAB function clustergram\relax }}{15}{figure.caption.29}

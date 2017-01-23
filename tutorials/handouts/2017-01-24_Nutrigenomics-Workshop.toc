@@ -13,11 +13,15 @@
 \contentsline {paragraph}{}{7}{section*.17}
 \contentsline {paragraph}{Example 2: PCA using example data}{10}{section*.20}
 \contentsline {paragraph}{}{11}{section*.21}
-\contentsline {paragraph}{Summary}{13}{section*.25}
-\contentsline {paragraph}{}{13}{section*.26}
+\contentsline {paragraph}{Exercise 3}{13}{section*.24}
+\contentsline {paragraph}{}{13}{section*.25}
+\contentsline {paragraph}{Summary}{13}{section*.27}
+\contentsline {paragraph}{}{13}{section*.28}
 \contentsline {subsubsection}{\numberline {1.1.2}Hierarchical Clustering}{14}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Interaction Network}{15}{subsection.1.2}
-\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{15}{subsubsection.1.2.1}
-\contentsline {part}{II\hspace {1em}Part II}{15}{part.2}
-\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{15}{section.2}
-\contentsline {section}{\numberline {3}Pathway Analysis}{15}{section.3}
+\contentsline {paragraph}{Exercise 4}{15}{section*.30}
+\contentsline {paragraph}{}{15}{section*.31}
+\contentsline {subsection}{\numberline {1.2}Interaction Network}{16}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{16}{subsubsection.1.2.1}
+\contentsline {part}{II\hspace {1em}Part II}{16}{part.2}
+\contentsline {section}{\numberline {2}Ranking genes (Feature Selection)}{16}{section.2}
+\contentsline {section}{\numberline {3}Pathway Analysis}{16}{section.3}

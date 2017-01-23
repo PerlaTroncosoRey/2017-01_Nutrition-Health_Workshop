@@ -12,8 +12,8 @@
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{amsmath}
-
 \usepackage{framed}
+\usepackage{tabulary}
 
 
 \title{Connecting Nutrition, Health and Environment }
@@ -528,7 +528,9 @@ Furthermore, the ellipse in the figure represents the normal data ellipse for ea
 
 
 
-TASK:
+\paragraph{Exercise 3}
+\paragraph{}
+
 Plot the three principal components for the expression data.
 Figure \ref{fig:example2-PCA-3D} shows an example of such plot.
 
@@ -550,22 +552,62 @@ A new coordinate system is constructed by rotating the axes (each representing a
 \subsubsection{Hierarchical Clustering}
 
 Hierarchical Clustering is another way to visualise high dimensional data. 
-It clusters observations by distance and builds a hierarchical structure 
+It clusters observations by distance and builds a hierarchical structure.
 It gives more detailed information of the differences among clusters, for example, what genes contributes the most to the differences between two clusters.
-
-Figure: Example of clustergram
-The clustergram is made of a heat map in the middle and dendograms in the left and top, with row and column labels on the right and bottom (depending on the number of genes and samples), and a scale bar. 
-Each column is a sample expression profile, and each row represents a gene.
-The colours suggests relative expression values, where red indicates high expression values and blue indicates low expression values. Ideally, samples of the same type will cluster together
-
-
-Figure: Example of clustergram of simulated random numbers
-No distinct clusters are observed. High and low expression values (red and blue colours) are mixed all together and the sample of the same type are mixed.
 
 
 Hierarchical clustering uses a distance metric (typically Euclidean but could be correlation, Hamming distance, etc.) between each pair of genes to create a hierarchical tree-like structure of the data. Then it uses a linkage function to calculate the distance between clusters. For more details please see \cite{Clustergram}. 
 
-EXAMPLE USING MULTIPEN
+
+Figure \ref{fig:hierarchical-clustering} shows an example of clustergram from gene expression data.
+The clustergram is made of a heat map in the middle and dendograms in the left and top, with row and column labels on the right and bottom (depending on the number of genes and samples) and a scale bar. 
+Each column is a sample expression profile, and each row represents a gene.
+The colours suggests relative expression values, where red indicates high expression values and blue indicates low expression values. 
+Ideally, samples of the same type will cluster together, e.g., all control samples will cluster together and all cases as well.
+
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{hierarchical-clustering}
+	\caption{Example of hierarchical clustering using the MATLAB function clustergram}
+	\label{fig:hierarchical-clustering}
+\end{figure}
+
+
+%Example of hierarchical clustering of simulated random numbers
+%Figure: Example of clustergram of simulated random numbers
+%No distinct clusters are observed. High and low expression values (red and blue colours) are mixed all together and the sample of the same type are mixed.
+
+
+
+\paragraph{Exercise 4}
+\paragraph{}
+
+MATLAB is a commercial software so if we do not have a license and thus we will use MultiPEN \cite{Rey2017} which is a software that includes a wrapper for MATLAB's clustergram function. This wrapper reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
+
+\begin{framed}
+\begin{verbatim}
+MultiPEN HierarchicalClustering Output Expression Threshold Title
+\end{verbatim}
+\end{framed}
+
+
+Description
+
+\begin{table}[!h]
+   \centering
+   %\caption{ }
+   \begin{tabulary}{\linewidth}{l L}
+      Parameter & Description \\
+      MultiPEN & This is the path to the binary executable of MultiPEN \\
+      Output & Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} \\
+      Expression & The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples. \\
+      Threshold & To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument. \\
+      Title & Specify the title to be displayed in the plot. This is an optional input argument.
+   \label{tab:SyntaxisClustergram}
+   \end{tabulary}
+\end{table}
+
+\noindent
+{\bf ACTIVITY}: Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN check \cite{Rey2017}.
 
 
 \subsection{Interaction Network}
