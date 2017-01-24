@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  24 JAN 2017 12:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  24 JAN 2017 17:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,7 +492,7 @@ Package pdftex.def Info: images/examples-correlation.png used on input line 138
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4]
-<images/example-coordinate-transform.png, id=165, 701.62125pt x 342.27875pt>
+<images/example-coordinate-transform.png, id=167, 701.62125pt x 342.27875pt>
 File: images/example-coordinate-transform.png Graphic file (type png)
 
 <use images/example-coordinate-transform.png>
@@ -509,7 +509,7 @@ Overfull \hbox (10.76077pt too wide) detected at line 207
 [] [] [][] [] [] []
  []
 
-[7] <images/example1-plot-two-genes.png, id=191, 1003.75pt x 641.39626pt>
+[7] <images/example1-plot-two-genes.png, id=193, 1003.75pt x 641.39626pt>
 File: images/example1-plot-two-genes.png Graphic file (type png)
 
 <use images/example1-plot-two-genes.png>
@@ -517,7 +517,7 @@ Package pdftex.def Info: images/example1-plot-two-genes.png used on input line
 323.
 (pdftex.def)             Requested size: 188.21288pt x 120.26149pt.
 
-<images/example1-plot-two-genes-centered.png, id=192, 1000.73875pt x 618.31pt>
+<images/example1-plot-two-genes-centered.png, id=194, 1000.73875pt x 618.31pt>
 File: images/example1-plot-two-genes-centered.png Graphic file (type png)
 
 <use images/example1-plot-two-genes-centered.png>
@@ -525,7 +525,7 @@ Package pdftex.def Info: images/example1-plot-two-genes-centered.png used on in
 put line 328.
 (pdftex.def)             Requested size: 188.21288pt x 116.28192pt.
 
-<images/example1_plot_2PC.png, id=193, 996.72375pt x 624.3325pt>
+<images/example1_plot_2PC.png, id=195, 996.72375pt x 624.3325pt>
 File: images/example1_plot_2PC.png Graphic file (type png)
 
 <use images/example1_plot_2PC.png>
@@ -563,7 +563,7 @@ osition = 'top')[]
  []
 
 [12]
-<images/example2-first2components-fattyLiverData.png, id=226, 914.41624pt x 677
+<images/example2-first2components-fattyLiverData.png, id=228, 914.41624pt x 677
 .53125pt>
 File: images/example2-first2components-fattyLiverData.png Graphic file (type pn
 g)
@@ -572,7 +572,7 @@ Package pdftex.def Info: images/example2-first2components-fattyLiverData.png us
 ed on input line 522.
 (pdftex.def)             Requested size: 418.25368pt x 309.9003pt.
 
-<images/example2-PCA-3D.png, id=230, 1124.2pt x 843.15pt>
+<images/example2-PCA-3D.png, id=232, 1124.2pt x 843.15pt>
 File: images/example2-PCA-3D.png Graphic file (type png)
 
 <use images/example2-PCA-3D.png>
@@ -584,7 +584,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [13 <./images/example2-first2components-fattyLiverData.png>] [14 <./images/exam
 ple2-PCA-3D.png (PNG copy)>]
-<images/hierarchical-clustering.png, id=249, 894.34125pt x 702.625pt>
+<images/hierarchical-clustering.png, id=251, 894.34125pt x 702.625pt>
 File: images/hierarchical-clustering.png Graphic file (type png)
 
 <use images/hierarchical-clustering.png>
@@ -640,11 +640,11 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (18 pages, 841353 bytes
+Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (18 pages, 841478 bytes
 ).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 286 compressed objects within 3 object streams
+ 346 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
  77 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
