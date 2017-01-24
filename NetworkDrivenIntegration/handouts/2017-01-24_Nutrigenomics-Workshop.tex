@@ -595,7 +595,7 @@ Ideally, samples of the same type will cluster together, e.g., all control sampl
 
 \subsubsection{Exercise: Hierarchical clustering for expression data}
 
-
+Compute hierarchical clustering on the Fatty Liver \cite{Wruck2015}.
 Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
 
 \paragraph{Syntax}
@@ -651,12 +651,133 @@ Run the the wrapper in MultiPEN to perform hierarchical clustering in the expres
 
 \section{Statistical Approaches with Sparsity}
 
-\subsection{Penalised Logistic Regression} 
+\subsection{Exercise: Features selection from expression data using MultiPEN}
+
+Perform feature selection for the gene expression data on the Fatty Liver study \cite{Wruck2015}. Using the feature selection function provided by MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}) which uses a penalised logistic regression approach. 
+
+\paragraph{Syntax}
+\paragraph{}
+
+\begin{framed}
+\begin{verbatim}
+MultiPEN FeatureSelection Output Expression Interactions Class lambda 
+DecisionThreshold NumIterations
+\end{verbatim}
+\end{framed}
+
+
+\paragraph{Description}
+\paragraph{}
+
+{\bf MultiPEN}:  This is the path to the binary executable of MultiPEN
+
+{\bf Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
+
+{\bf Expression}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
+
+{\bf Interactions}: The interaction matrix where the i{\it th} interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
+
+{\bf Class}: For each sample (one sample per row) specify if control (0) or case (1).
+
+{\bf lambda}: This is the lambda parameter that optimises the logistic regression problem for your specific data. Different lambdas can be tested using cross validation, then selecting the value that provides better results (in terms of the size of the largest connected component, accuracy or area under the curve).  
+
+{\bf DecisionThreshold}: The decision threshold is set to 0.5 by default. However, if want to test another value specify it here.
+
+{\bf NumIterations}: Maximum number of iterations for the optimisation solver. Default value is 100.
 
 
 
+\paragraph{Feature Selection Output Files}
+\paragraph{}
 
-\subsubsection{Exercise: Features selection from expression data using MultiPEN}
+Feature selection produces seven output files: 
+
+\paragraph{}
+{\bf MultiPEN-Rankings\_lambdaX.txt}: Ranking of features for the corresponding lambda X.
+
+{\bf MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt}: Ranking of features which includes only features with higher expression in cases samples.
+
+{\bf MultiPEN-Rankings\_lambdaX\_genes-higher-in-control.txt}: Ranking of features which includes only features with higher expression in control samples.
+
+{\bf MultiPEN-vts\_lambdaX.txt}: Intercept term (logistic regression model).
+
+{\bf MultiPEN-performance\_feature-selection\_lambdaX.txt}: file that contains statistics on the performance of feature selection: largest connected component (LCC), area under the curve (auc), accuracy, true positives (TP), true negatives (TN), false positives (FP) and false negatives (FN).
+
+{\bf MultiPEN-feature-selection\_config.txt}: Contains the information of the parameters used: lambda, number of iterations and decision threshold.
+
+
+
+%
+%This tabular file contains the results for the features selection. The first five columns contain the list of features, weight, ranking, fold change and the class where the feature had higher vote.  The last columns correspond to the expression data. The columns are defined as follows:
+%
+%
+%Column | Column Name | Description | Example (row 4 in Figure 2)
+%-------|-------------|-------------|-----------------------------
+%1 | name | Feature (gene and/or metabolite) name | PPOX
+%2 | weight | This is the weight learned by MultiPEN and it is a number in the range [-1,1]. | 0.00290391
+%3 | ranking | Ranking according to the absolute weight, where ranking 1 corresponds to the most significant feature for the model. | 3
+%4 | foldChange | Fold change to determine the expression change from control to cases. | 1.1735
+%5 | higherIn | The average expression is higher in case or control. | case
+%6 | sample_1 | First sample | case1
+%? | ? | ? | ?
+%n+5 (n is the number of samples) | sample_n | Last sample | control7
+%
+%The figure shows an example of the rankings file created with the feature selection module.
+%
+%![example output rankings](images/example_output_rankings.png)
+%
+%
+%**MultiPEN-Rankings_lambda0.001_genes-higher-in-cases.txt** and **MultiPEN-Rankings_lambda0.001_genes-higher-in-control.txt**
+%
+%These tabular files contain the ranking of features which includes only features with higher expression in cases samples and control samples separately. 
+%
+%
+%**MultiPEN-vts_lambda0.001.txt**
+%Intercept term (logistic regression model)
+%
+%
+%MultiPEN-performance_feature-selection_lambda0.001.txt | LCC, auc, accuracy, TP, TN, FP, FN
+%MultiPEN-feature-selection_config.txt | Lambda, number of iterations, decision threshold
+%
+%
+%** MultiPEN-feature-selection_config.txt **
+%File containing details of the parameters used to run feature selection: lambda, number of iterations (numIter - used to run the optimisation routine that solves the logistic regression problem) and the decision threshold (for class prediction). 
+%
+%
+%
+%### Example - OS
+%
+%*Using default decision threshold and number of iterations.*
+%
+%In the command line, navigate to the folder where the binary for MultiPEN is located, i.e., binary-OS/MultiPEN_v001_OS/. Then create variables for the paths to stand-alone application, output directory and input files by typing:
+%
+%```
+%MultiPEN="MultiPEN.app/Contents/MacOS/applauncher"
+%OutputDirectory="ExampleOutputs/"
+%ExpressionData="ExampleInputs/X.txt"
+%Interactions="ExampleInputs/E.txt"
+%SampleClass="ExampleInputs/Y.txt"
+%lambda=0.001
+%```
+%
+%
+%Next, run feature selection with the following command:
+%
+%```
+%$MultiPEN FeatureSelection $OutputDirectory $ExpressionData $Interactions $SampleClass $lambda
+%```
+%
+%
+%### Running example script for feature selection
+%
+%To run the script provided as example with all the default parameters, use the command:
+%
+%```
+%./example_feature_selection.sh 
+%```
+
+
+
 
 
 \section{Pathway Analysis}

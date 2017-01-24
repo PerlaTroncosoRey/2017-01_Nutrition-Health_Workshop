@@ -6,7 +6,7 @@
 \contentsline {paragraph}{}{4}{section*.7}
 \contentsline {paragraph}{Coordinate transformations}{5}{section*.10}
 \contentsline {paragraph}{}{5}{section*.11}
-\contentsline {paragraph}{Eigenvalues and Eigenvectors}{6}{section*.13}
+\contentsline {paragraph}{Eigenvalues and Eigenvectors}{5}{section*.13}
 \contentsline {paragraph}{}{6}{section*.14}
 \contentsline {subsubsection}{\numberline {1.1.2}Exercise: PCA for the expression of two genes}{7}{subsubsection.1.1.2}
 \contentsline {paragraph}{}{7}{section*.15}
@@ -27,6 +27,12 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{17}{subsubsection.1.2.1}
 \contentsline {part}{II\hspace {1em}Part II}{17}{part.2}
 \contentsline {section}{\numberline {2}Statistical Approaches with Sparsity}{17}{section.2}
-\contentsline {subsection}{\numberline {2.1}Penalised Logistic Regression}{17}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Exercise: Features selection from expression data using MultiPEN}{17}{subsubsection.2.1.1}
-\contentsline {section}{\numberline {3}Pathway Analysis}{17}{section.3}
+\contentsline {subsection}{\numberline {2.1}Exercise: Features selection from expression data using MultiPEN}{17}{subsection.2.1}
+\contentsline {paragraph}{Syntax}{17}{section*.32}
+\contentsline {paragraph}{}{17}{section*.33}
+\contentsline {paragraph}{Description}{17}{section*.34}
+\contentsline {paragraph}{}{17}{section*.35}
+\contentsline {paragraph}{Feature Selection Output Files}{18}{section*.36}
+\contentsline {paragraph}{}{18}{section*.37}
+\contentsline {paragraph}{}{18}{section*.38}
+\contentsline {section}{\numberline {3}Pathway Analysis}{18}{section.3}

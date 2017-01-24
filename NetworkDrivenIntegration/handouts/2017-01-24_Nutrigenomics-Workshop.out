@@ -10,6 +10,5 @@
 \BOOKMARK [3][-]{subsubsection.1.2.1}{Compile the network with Cytoscape}{subsection.1.2}% 10
 \BOOKMARK [0][-]{part.2}{II Part II}{}% 11
 \BOOKMARK [1][-]{section.2}{Statistical Approaches with Sparsity}{part.2}% 12
-\BOOKMARK [2][-]{subsection.2.1}{Penalised Logistic Regression}{section.2}% 13
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Exercise: Features selection from expression data using MultiPEN}{subsection.2.1}% 14
-\BOOKMARK [1][-]{section.3}{Pathway Analysis}{part.2}% 15
+\BOOKMARK [2][-]{subsection.2.1}{Exercise: Features selection from expression data using MultiPEN}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Pathway Analysis}{part.2}% 14
