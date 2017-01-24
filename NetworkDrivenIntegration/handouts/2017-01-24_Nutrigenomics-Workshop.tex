@@ -169,11 +169,17 @@ When a transformation matrix maps a vector to a multiple of itself, then the vec
 T x = \lambda x
 \end{equation} 
 
-\noindent where $\lambda$ are the Eigenvalues and $x$ are the Eigenvectors. A matrix formed from the Eigenvectors placed in the columns is orthogonal.
+\noindent where $\lambda$ are the Eigenvalues and $x$ are the Eigenvectors. 
 
-In general terms, PCA uses covariants to encode the structure in the data and then eigenvectors to devise a new set of coordinates that best reveals the structure by finding the appropriate set of directions. One result from linear algebra is that if the eigenvectors are placed next to each other then the result is an orthogonal matrix that performs a coordinate transformation. This is central for PCA.
+In general terms, PCA uses covariants to encode the structure in the data and then eigenvectors to devise a new set of coordinates that best reveals the structure by finding the appropriate set of directions. One result from linear algebra is that if the eigenvectors are placed next to each other to construct an orthogonal matrix that performs a coordinate transformation. It is important to mention that Eigenvectors are placed in descending order of their corresponding eigenvalue to ensure that the first components encode most of the variance in the data.
+The transpose of this matrix of Eigenvectos is an orthogonal matrix which performs a rotated-axis coordinate transformation. We can transform our data matrix, $D$, to the new coordinates, $D_{PCA}$:  
 
-Example: 
+\[
+   D_{PCA} = W^T D
+\]
+
+
+For example: 
 
 \[ \text{The matrix: }
 %
@@ -184,7 +190,7 @@ Example:
       \end{tabular}
    \right)
    %
-   \text{has eigenvalues 4 and -1.}
+   \text{has eigenvalues 4 and -1}
    \text{ and the eigenvectors}
    \left( \begin{array}{c}
       1 \\ 
@@ -235,23 +241,15 @@ such that
    \end{array} \right)
 \]
 
+The orthogonal matrix using these Eigenvector is: 
 
-
-
-\paragraph{In summary, PCA benefits are:}
-
-\begin{itemize}
-
-   \item A powerful tool to visualise high dimensional data 
-
-   \item Shows quantified difference among observations
-
-   \item Used to assess data quality and discover relationships between data points
-   
-   \item Some software to compute PCA is available in MATLAB and R (using package stats)
-
-\end{itemize}
-
+\[ 
+  W^T = 
+   \left[ \begin{array}{cc}
+      1 & 1 \\ 
+      3 & -2      
+   \end{array} \right]
+\]
 
 
 
@@ -547,6 +545,24 @@ Figure \ref{fig:example2-PCA-3D} shows an example of such plot.
 In summary, PCA is a method of revealing underling trends in large amounts of data. PCA reduces high dimensional data to just a few principal components which hopefully capture most of the variation of the data and allows inferring meaningful structure.
 
 A new coordinate system is constructed by rotating the axes (each representing a gene). The first new coordinate, or first principal component, is the direction in which the data varies most, then the second component, and so on. PCA allows to select a few new variables which contain most of the variation of the data which can also be visualised.
+
+
+Some of the benefits of using PCA benefits are:
+
+\begin{itemize}
+
+   \item A powerful tool to visualise high dimensional data 
+
+   \item Shows quantified difference among observations
+
+   \item Used to assess data quality and discover relationships between data points
+   
+   \item Some software to compute PCA is available in MATLAB and R (using package stats)
+
+\end{itemize}
+
+
+
 
 
 \subsubsection{Hierarchical Clustering}
