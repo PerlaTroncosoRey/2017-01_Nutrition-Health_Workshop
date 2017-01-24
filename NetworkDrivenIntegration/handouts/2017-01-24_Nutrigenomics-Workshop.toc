@@ -17,6 +17,12 @@
 \contentsline {paragraph}{}{13}{section*.24}
 \contentsline {subsubsection}{\numberline {1.1.4}Hierarchical Clustering}{15}{subsubsection.1.1.4}
 \contentsline {subsubsection}{\numberline {1.1.5}Exercise: Hierarchical clustering for expression data}{15}{subsubsection.1.1.5}
+\contentsline {paragraph}{Syntax}{15}{section*.26}
+\contentsline {paragraph}{}{15}{section*.27}
+\contentsline {paragraph}{Description}{15}{section*.28}
+\contentsline {paragraph}{}{15}{section*.29}
+\contentsline {paragraph}{Exercise}{16}{section*.30}
+\contentsline {paragraph}{}{16}{section*.31}
 \contentsline {subsection}{\numberline {1.2}Interaction Network}{17}{subsection.1.2}
 \contentsline {subsubsection}{\numberline {1.2.1}Compile the network with Cytoscape}{17}{subsubsection.1.2.1}
 \contentsline {part}{II\hspace {1em}Part II}{17}{part.2}

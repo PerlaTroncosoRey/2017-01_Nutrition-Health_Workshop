@@ -14,6 +14,7 @@
 \usepackage{amsmath}
 \usepackage{framed}
 \usepackage{tabulary}
+\usepackage{hyperref}
 
 
 \title{Connecting Nutrition, Health and Environment }
@@ -597,7 +598,10 @@ Ideally, samples of the same type will cluster together, e.g., all control sampl
 \subsubsection{Exercise: Hierarchical clustering for expression data}
 
 
-MATLAB is a commercial software so if we do not have a license and thus we will use MultiPEN \cite{Rey2017} which is a software that includes a wrapper for MATLAB's clustergram function. This wrapper reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
+Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
+
+\paragraph{Syntax}
+\paragraph{}
 
 \begin{framed}
 \begin{verbatim}
@@ -606,24 +610,39 @@ MultiPEN HierarchicalClustering Output Expression Threshold Title
 \end{framed}
 
 
-Description
+\paragraph{Description}
+\paragraph{}
 
-\begin{table}[!h]
-   \centering
-   %\caption{ }
-   \begin{tabulary}{\linewidth}{l L}
-      Parameter & Description \\
-      MultiPEN & This is the path to the binary executable of MultiPEN \\
-      Output & Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} \\
-      Expression & The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples. \\
-      Threshold & To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument. \\
-      Title & Specify the title to be displayed in the plot. This is an optional input argument.
-   \label{tab:SyntaxisClustergram}
-   \end{tabulary}
-\end{table}
 
-\noindent
-{\bf ACTIVITY}: Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN check \cite{Rey2017}.
+{\bf MultiPEN}:  This is the path to the binary executable of MultiPEN
+
+{\bf Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
+
+{\bf Expression}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
+
+{\bf Threshold}: To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument.
+
+{\bf Title}: Specify the title to be displayed in the plot. This is an optional input argument.
+
+
+%\begin{table}[!h]
+%   \centering
+%   %\caption{ }
+%   \begin{tabulary}{\linewidth}{l L}
+%      Parameter & Description \\
+%      MultiPEN & This is the path to the binary executable of MultiPEN \\
+%      Output & Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} \\
+%      Expression & The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples. \\
+%      Threshold & To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument. \\
+%      Title & Specify the title to be displayed in the plot. This is an optional input argument.
+%   \label{tab:SyntaxisClustergram}
+%   \end{tabulary}
+%\end{table}
+
+\paragraph{Exercise}
+\paragraph{}
+
+Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN visit \url{https://github.com/TGAC/MultiPEN/} \cite{Rey2017}.
 
 
 \subsection{Interaction Network}
