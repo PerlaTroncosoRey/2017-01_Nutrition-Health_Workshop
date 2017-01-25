@@ -7,8 +7,9 @@
 \BOOKMARK [3][-]{subsubsection.1.1.4}{Hierarchical Clustering}{subsubsection.1.1.1}% 7
 \BOOKMARK [3][-]{subsubsection.1.1.5}{Exercise: Hierarchical clustering for expression data}{subsubsection.1.1.1}% 8
 \BOOKMARK [2][-]{subsection.1.2}{Interaction Network}{subsection.1.1}% 9
-\BOOKMARK [3][-]{subsubsection.1.2.1}{Compile the network with Cytoscape}{subsection.1.2}% 10
-\BOOKMARK [0][-]{part.2}{II Part II}{}% 11
-\BOOKMARK [1][-]{section.2}{Statistical Approaches with Sparsity}{part.2}% 12
-\BOOKMARK [2][-]{subsection.2.1}{Exercise: Features selection from expression data using MultiPEN}{section.2}% 13
-\BOOKMARK [1][-]{section.3}{Pathway Analysis}{part.2}% 14
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Exercise: Building a network using PSICQUIC}{subsection.1.2}% 10
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Compile the network with STRINGdb}{subsection.1.2}% 11
+\BOOKMARK [0][-]{part.2}{II Part II}{}% 12
+\BOOKMARK [1][-]{section.2}{Statistical Approaches with Sparsity}{part.2}% 13
+\BOOKMARK [2][-]{subsection.2.1}{Exercise: Features selection from expression data using MultiPEN}{section.2}% 14
+\BOOKMARK [1][-]{section.3}{Pathway Analysis}{part.2}% 15

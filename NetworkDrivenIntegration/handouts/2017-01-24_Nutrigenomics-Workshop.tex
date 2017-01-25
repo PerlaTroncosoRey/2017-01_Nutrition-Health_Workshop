@@ -108,7 +108,7 @@ The variance provides the the spread of the data:
 \end{equation}
 
 
-For example, figure \ref{fig:MeanVariance} shows two distributions with the same mean but different variance. This means that the data points are at the same location but with a different strength. Thus, the third statistic we'll need is the covariance.
+For example, Figure \ref{fig:MeanVariance} shows two distributions with the same mean but different variance. This means that the data points are at the same location but with a different strength. Thus, the third statistic we'll need is the covariance.
 
 \begin{figure}[!h]
 	\centering
@@ -302,7 +302,7 @@ We start by create a matrix of points in 2-d space (gene expression data) by usi
 \end{framed}
 
 
-Then, we plot these two genes (see figure \ref{fig:PlotTwoGenes}) using the command: 
+Then, we plot these two genes (see Figure \ref{fig:PlotTwoGenes}) using the command: 
 
 \begin{framed}
 \begin{verbatim}
@@ -311,7 +311,7 @@ Then, we plot these two genes (see figure \ref{fig:PlotTwoGenes}) using the comm
 \end{framed}
 
 
-\noindent Trends are already apparent because data is simple but this is not usually the case. We then perform an statistical analysis using Principal Component Analysis. Before starting with PCA, it is best to first have centered the data with mean zero. This is, calculate the mean of each of the two variables and substracted to obtain centered data (shown in figure \ref{fig:PlotTwoGenesCentered}). 
+\noindent Trends are already apparent because data is simple but this is not usually the case. We then perform an statistical analysis using Principal Component Analysis. Before starting with PCA, it is best to first have centered the data with mean zero. This is, calculate the mean of each of the two variables and substracted to obtain centered data (shown in Figure \ref{fig:PlotTwoGenesCentered}). 
 
 
 %Plot data and data centered
@@ -412,7 +412,7 @@ We can transform our data matrix so that the data is represented in the new coor
 \]
 
 
-The we can plot our data in the new coordinates, as shown in figure \ref{fig:PlotTwoGenesNewCoordiantes}, where each coordinate is called principal component. 
+The we can plot our data in the new coordinates, as shown in Figure \ref{fig:PlotTwoGenesNewCoordiantes}, where each coordinate is called principal component. 
 The first coordinate aligns with the direction in the expression space where has the most variation. Subsequent coordinates would align with directions with descending degrees of variation. This is why we are careful to order according to the size of the eigenvalues.
 Thus, PCA is capturing as much variation in the first component as possible, then the same for the second coordinate, and so on.
 In the case of our data, all the meaningful variation sees to have been captured with the first coordinate, or the first principal component. Specially compared to the second component which would seem to be random scatter. So we have reduced the dimensionality of our data from two to one. In cases when dealing with thousands of genes, PCA might be able to capture most of the variation of the data in with only two or three principal components. Thus making it easier to visualise it, which is one of the main motivations of performing PCA.
@@ -509,7 +509,7 @@ Next, calculate the principal components using {\it prcomp} and plot the first t
 \end{framed}
 
 
-\noindent {\it ggbiplot} produces a plot which is shown in figure \ref{fig:PCAFattyLiver}.
+\noindent {\it ggbiplot} produces a plot which is shown in Figure \ref{fig:PCAFattyLiver}.
 Each dot is a gene expression from a sample in each category (group) from a patient, and is coloured by its type.
 The two axis are the first two principal components and the numbers represent the percentage of variance that is captured by each component. Typically, the first three component captures the most variance, whereas following components capture only a small percentage of variance.
 Dots of the same type tend to cluster together which means that samples of the same type have similar expression profiles.
@@ -644,7 +644,65 @@ Run the the wrapper in MultiPEN to perform hierarchical clustering in the expres
 
 
 \subsection{Interaction Network}
-\subsubsection{Compile the network with Cytoscape}
+
+\subsubsection{Exercise: Building a network using PSICQUIC}
+
+Build Protein-Protein Interaction network with PSICQUIC, \url{http://www.ebi.ac.uk/Tools/webservices/psicquic/view/home.xhtml}
+
+PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a meta-server that runs queries of PPI from multiple primary resources. It is available as:
+
+\begin{enumerate}
+   
+   \item Web-based tool http://www.ebi.ac.uk/Tools/webservices/psicquic/view/home.xhtml
+   
+   \item R/Bioconductor http://bioconductor.org/packages/release/bioc/html/PSICQUIC.html
+   
+   \item Perl or Python client script to run web queries through API
+
+\end{enumerate}
+
+
+\paragraph{Using PSICQUIC web interface}
+\paragraph{}
+
+
+\begin{enumerate}
+   \item Paste list of genes into the search query and select source db (see Figure \ref{fig:psicquic1}).
+
+
+   \begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{psicquic1}
+	\caption{Query of gene using PSICQUIC web interface}
+	\label{fig:psicquic1}
+   \end{figure}
+
+   \item After initial search the service informs about number of interactions detected in given resource (see Figure \ref{fig:psicquic2}).
+
+   \begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{psicquic2}
+	\caption{Result of the interactions found for search term in PSICQUIC}
+	\label{fig:psicquic2}
+   \end{figure}
+   
+   \item Now we can view results, customise list of displayed columns and download results (see Figure \ref{fig:psicquic3}).
+   
+
+   \begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{psicquic3}
+	\caption{Customising view of results provided by PSICQUIC}
+	\label{fig:psicquic3}
+   \end{figure}
+
+
+   \item Some of the resources e.g., Intact, Mentha, Reactome provide evidence scores that could be used for quality control purpose. Similarly as with StringDB is it advisable to use interactions with weight $>0.8$  in order to decrease number of spurious interactions. This cut-off is arbitrary and should be adjusted for specific application. 
+
+\end{enumerate}
+
+
+\subsubsection{Compile the network with STRINGdb}
 
 
 \part{Part II}
@@ -823,9 +881,9 @@ Rscript enrichmentGO.R ../ExampleOutputs/MultiPEN\-Rankings\_lambda0.0001.txt ou
 %
 %\begin{figure}[!h]
 %	\centering
-%	\includegraphics[width=\textwidth]{VolcanoMatrix}
-%	\caption{Matrix of volcano plots explore genes that differ significantly between pairs of conditions}
-%	\label{fig:volcanoplot}
+%	\includegraphics[width=\textwidth]{fFigureName}
+%	\caption{Some caption here}
+%	\label{fig:}
 %\end{figure}
 
 %figure with subfigures

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  24 JAN 2017 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.11)  25 JAN 2017 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -445,7 +445,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 45.
 
-<images/example_expression_data.png, id=112, 350.30875pt x 283.0575pt>
+[2] <images/example_expression_data.png, id=142, 350.30875pt x 283.0575pt>
 File: images/example_expression_data.png Graphic file (type png)
 
 <use images/example_expression_data.png>
@@ -453,10 +453,6 @@ Package pdftex.def Info: images/example_expression_data.png used on input line
 54.
 (pdftex.def)             Requested size: 292.77629pt x 236.58754pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2]
 Overfull \hbox (74.26833pt too wide) in paragraph at lines 66--83
  [][] 
  []
@@ -469,7 +465,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 88.
 
 [3 <./images/example_expression_data.png>]
-<images/same-mean_different-variance.png, id=142, 354.32375pt x 397.485pt>
+<images/same-mean_different-variance.png, id=152, 354.32375pt x 397.485pt>
 File: images/same-mean_different-variance.png Graphic file (type png)
 
 <use images/same-mean_different-variance.png>
@@ -480,36 +476,32 @@ line 115.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/examples-correlation.png, id=144, 413.545pt x 316.18124pt>
+<images/examples-correlation.png, id=154, 413.545pt x 316.18124pt>
 File: images/examples-correlation.png Graphic file (type png)
 
 <use images/examples-correlation.png>
 Package pdftex.def Info: images/examples-correlation.png used on input line 138
 .
 (pdftex.def)             Requested size: 292.77629pt x 223.84859pt.
-
+ [4]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
-<images/example-coordinate-transform.png, id=161, 701.62125pt x 342.27875pt>
+[5 <./images/same-mean_different-variance.png>]
+<images/example-coordinate-transform.png, id=181, 701.62125pt x 342.27875pt>
 File: images/example-coordinate-transform.png Graphic file (type png)
 
 <use images/example-coordinate-transform.png>
 Package pdftex.def Info: images/example-coordinate-transform.png used on input 
 line 155.
 (pdftex.def)             Requested size: 292.77629pt x 142.83165pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[5 <./images/same-mean_different-variance.png>] [6 <./images/examples-correlati
-on.png> <./images/example-coordinate-transform.png>]
+ [6 <./images/examples-correlation.png> <./images/example-coordinate-transform.
+png>]
 Overfull \hbox (10.76077pt too wide) detected at line 205
 [] [] [][] [] [] []
  []
 
-[7] <images/example1-plot-two-genes.png, id=188, 1003.75pt x 641.39626pt>
+[7] <images/example1-plot-two-genes.png, id=199, 1003.75pt x 641.39626pt>
 File: images/example1-plot-two-genes.png Graphic file (type png)
 
 <use images/example1-plot-two-genes.png>
@@ -517,7 +509,7 @@ Package pdftex.def Info: images/example1-plot-two-genes.png used on input line
 321.
 (pdftex.def)             Requested size: 188.21288pt x 120.26149pt.
 
-<images/example1-plot-two-genes-centered.png, id=189, 1000.73875pt x 618.31pt>
+<images/example1-plot-two-genes-centered.png, id=200, 1000.73875pt x 618.31pt>
 File: images/example1-plot-two-genes-centered.png Graphic file (type png)
 
 <use images/example1-plot-two-genes-centered.png>
@@ -525,7 +517,7 @@ Package pdftex.def Info: images/example1-plot-two-genes-centered.png used on in
 put line 326.
 (pdftex.def)             Requested size: 188.21288pt x 116.28192pt.
 
-<images/example1_plot_2PC.png, id=190, 996.72375pt x 624.3325pt>
+<images/example1_plot_2PC.png, id=201, 996.72375pt x 624.3325pt>
 File: images/example1_plot_2PC.png Graphic file (type png)
 
 <use images/example1_plot_2PC.png>
@@ -563,7 +555,7 @@ osition = 'top')[]
  []
 
 [12]
-<images/example2-first2components-fattyLiverData.png, id=223, 914.41624pt x 677
+<images/example2-first2components-fattyLiverData.png, id=234, 914.41624pt x 677
 .53125pt>
 File: images/example2-first2components-fattyLiverData.png Graphic file (type pn
 g)
@@ -572,7 +564,7 @@ Package pdftex.def Info: images/example2-first2components-fattyLiverData.png us
 ed on input line 520.
 (pdftex.def)             Requested size: 418.25368pt x 309.9003pt.
 
-<images/example2-PCA-3D.png, id=227, 1124.2pt x 843.15pt>
+<images/example2-PCA-3D.png, id=238, 1124.2pt x 843.15pt>
 File: images/example2-PCA-3D.png Graphic file (type png)
 
 <use images/example2-PCA-3D.png>
@@ -584,7 +576,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [13 <./images/example2-first2components-fattyLiverData.png>] [14 <./images/exam
 ple2-PCA-3D.png (PNG copy)>]
-<images/hierarchical-clustering.png, id=246, 894.34125pt x 702.625pt>
+<images/hierarchical-clustering.png, id=257, 894.34125pt x 702.625pt>
 File: images/hierarchical-clustering.png Graphic file (type png)
 
 <use images/hierarchical-clustering.png>
@@ -602,48 +594,80 @@ he out-put im-age, de-fault is: \OT1/cmr/m/it/10.95 out-put/MultiPEN/stats/
  []
 
 [15] [16 <./images/hierarchical-clustering.png>]
-Overfull \hbox (16.49423pt too wide) in paragraph at lines 674--675
+Overfull \hbox (11.86891pt too wide) in paragraph at lines 656--657
+[]\OT1/cmr/m/n/10.95 Web-based tool http://www.ebi.ac.uk/Tools/webservices/psic
+quic/view/home.xhtml 
+ []
+
+
+Overfull \hbox (25.92148pt too wide) in paragraph at lines 658--659
+[]\OT1/cmr/m/n/10.95 R/Bioconductor http://bioconductor.org/packages/release/bi
+oc/html/PSICQUIC.html 
+ []
+
+<images/psicquic1.png, id=283, 949.5475pt x 663.47874pt>
+File: images/psicquic1.png Graphic file (type png)
+
+<use images/psicquic1.png>
+Package pdftex.def Info: images/psicquic1.png used on input line 675.
+(pdftex.def)             Requested size: 418.25368pt x 292.24538pt.
+
+<images/psicquic2.png, id=285, 1384.17125pt x 554.07pt>
+File: images/psicquic2.png Graphic file (type png)
+
+<use images/psicquic2.png>
+Package pdftex.def Info: images/psicquic2.png used on input line 684.
+(pdftex.def)             Requested size: 418.25368pt x 167.4228pt.
+ [17 <./images/psicquic1.png>]
+<images/psicquic3.png, id=300, 1029.8475pt x 557.08125pt>
+File: images/psicquic3.png Graphic file (type png)
+
+<use images/psicquic3.png>
+Package pdftex.def Info: images/psicquic3.png used on input line 694.
+(pdftex.def)             Requested size: 418.25368pt x 226.2457pt.
+ [18 <./images/psicquic2.png> <./images/psicquic3.png>]
+Overfull \hbox (16.49423pt too wide) in paragraph at lines 732--733
 []\OT1/cmr/bx/n/10.95 Output\OT1/cmr/m/n/10.95 : Spec-ify di-rec-tory to save t
 he out-put im-age, de-fault is: \OT1/cmr/m/it/10.95 out-put/MultiPEN/stats/ 
  []
 
-[17]
-Overfull \hbox (3.78128pt too wide) in paragraph at lines 698--699
+[19]
+Overfull \hbox (3.78128pt too wide) in paragraph at lines 756--757
 []\OT1/cmr/bx/n/10.95 MultiPEN-Rankings[]lambdaX[]genes-higher-in-cases.txt\OT1
 /cmr/m/n/10.95 : Rank-ing of fea-tures
  []
 
 
-Overfull \hbox (15.2515pt too wide) in paragraph at lines 704--705
+Overfull \hbox (15.2515pt too wide) in paragraph at lines 762--763
 []\OT1/cmr/bx/n/10.95 MultiPEN-performance[]feature-selection[]lambdaX.txt\OT1/
 cmr/m/n/10.95 : file that con-tains statis-
  []
 
-(./2017-01-24_Nutrigenomics-Workshop.bbl [18])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 875.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 875.
+(./2017-01-24_Nutrigenomics-Workshop.bbl [20])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 933.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 933.
 
 (./2017-01-24_Nutrigenomics-Workshop.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 875.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 875.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 933.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 933.
 Package rerunfilecheck Info: File `2017-01-24_Nutrigenomics-Workshop.out' has n
 ot changed.
-(rerunfilecheck)             Checksum: F18210489D5FC48D23899088FE472634;1118.
+(rerunfilecheck)             Checksum: 4038F29FF4F5ED1F2A2878DEC5DF0892;1220.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 875.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 933.
  ) 
 Here is how much of TeX's memory you used:
- 7791 strings out of 493089
- 117944 string characters out of 6134841
- 215976 words of memory out of 5000000
- 11084 multiletter control sequences out of 15000+600000
+ 7825 strings out of 493089
+ 118494 string characters out of 6134841
+ 216228 words of memory out of 5000000
+ 11100 multiletter control sequences out of 15000+600000
  12794 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,41p,612b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,41p,621b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -657,11 +681,11 @@ exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (19 pages, 846156 bytes
-).
+Output written on 2017-01-24_Nutrigenomics-Workshop.pdf (21 pages, 1136859 byte
+s).
 PDF statistics:
- 358 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 163 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 401 PDF objects out of 1000 (max. 8388607)
+ 333 compressed objects within 4 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
