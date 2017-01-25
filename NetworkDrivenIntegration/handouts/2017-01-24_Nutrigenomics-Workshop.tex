@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 
 
+
 \title{Connecting Nutrition, Health and Environment }
 \author{Wiktor Jurkowski, Perla Troncoso Rey, Earlham Institute}
 \date{25 - 26 January 2017}	 % Activate to display a given date or no date
@@ -40,9 +41,7 @@ We will use a publicly available data from a study on fatty liver disease of obe
 
 
 
-\part{Part I}
-
-\subsection{Exploring the expression data}
+\part{Exploring the expression data}
 
 One could obtain gene expression from microarrays or RNA sequencing data. It is not within the scope of this session to look at the details of obtaining quantifying the expression of genes from microarrays or RNA sequencing data but instead we will start our analysis assuming that expression data has been quantified.
 The gene expression data is normally stored in tabular file, representing a matrix where the columns are the samples or experiments, and the rows represent the genes. 
@@ -85,7 +84,7 @@ Expression data can be obtained using different algorithms. One of the most well
 
 
 
-\subsubsection{Principal Component Analysis}
+\section{Principal Component Analysis}
 
 Principal Component Analysis, commonly known as PCA, is a mathematical technique that is used to explore data, specially high-dimensional data, to extract the most important trends in the data.
 
@@ -255,7 +254,7 @@ The orthogonal matrix using these Eigenvector is:
 % Here we start with some hands-on exercises
 
 % Example 1
-\subsubsection{Exercise: PCA for the expression of two genes}
+\subsection{Exercise: PCA for the expression of two genes}
 \paragraph{}
 
 We will use R and the package stats to perform PCA. We will use an example data which represents several measurements of the expression of two genes, $x$ and $y$, with the following values:
@@ -428,7 +427,7 @@ In the case of our data, all the meaningful variation sees to have been captured
 
 
 % Example 2: loading example data from file
-\subsubsection{Exercise: PCA using example data}
+\subsection{Exercise: PCA using example data}
 
 
 In this example we will use a publicly available dataset to explore expression data. We will use the stats package in R for computing PCA and will show how to visualise it using the function ggbiplot, which was implemented by Vince Q Vu \cite{Vu2016}. 
@@ -525,7 +524,7 @@ Furthermore, the ellipse in the figure represents the normal data ellipse for ea
 
 
 
-\paragraph{Exercise 3}
+\paragraph{Extra exercise: plotting the three principal components}
 \paragraph{}
 
 Plot the three principal components for the expression data.
@@ -564,7 +563,7 @@ Some of the benefits of using PCA benefits are:
 
 
 
-\subsubsection{Hierarchical Clustering}
+\section{Hierarchical Clustering}
 
 Hierarchical Clustering is another way to visualise high dimensional data. 
 It clusters observations by distance and builds a hierarchical structure.
@@ -593,7 +592,7 @@ Ideally, samples of the same type will cluster together, e.g., all control sampl
 
 
 
-\subsubsection{Exercise: Hierarchical clustering for expression data}
+\subsection{Exercise: Hierarchical clustering for expression data}
 
 Compute hierarchical clustering on the Fatty Liver \cite{Wruck2015}.
 Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
@@ -643,9 +642,9 @@ MultiPEN HierarchicalClustering Output Expression Threshold Title
 Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN visit \url{https://github.com/TGAC/MultiPEN/} \cite{Rey2017}.
 
 
-\subsection{Interaction Network}
+\section{Interaction Network}
 
-\subsubsection{Exercise: Building a network using PSICQUIC}
+\subsection{Exercise: Building a network using PSICQUIC}
 
 Build Protein-Protein Interaction network with PSICQUIC, \url{http://www.ebi.ac.uk/Tools/webservices/psicquic/view/home.xhtml}
 
@@ -702,14 +701,89 @@ PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a met
 \end{enumerate}
 
 
-\subsubsection{Compile the network with STRINGdb}
+\subsection{Compile the network with STRINGdb}
+
+Type the following code in an R script:
+
+\begin{framed}
+\begin{verbatim}
+  # Get StringInteractome Network 
+  
+  #INPUT 
+  # fileName - table with column 'name'
+  # Uncomment next two lines and add values accordingly
+  # speciesName = 'human'
+  # speciesCode = 9606  #homo sapiens
+  
+  # networkFileName = "network.csv"   # output file name
+
+  # Load file with list of genes  
+  # Read data table
+  # with at least a column "name" for the list of genes
+  inputData <- read.delim( fileName, header = TRUE, 
+      		sep = '\t', stringsAsFactors = FALSE)
+  geneList <- inputData$name
+  
+  # begin compiling network
+  library(STRINGdb)
+  string_db <- STRINGdb$new( version="10", species = 9606, 
+  		score_threshold=0, input_directory="" )
+  mapped <- string_db$map( inputData,  "name", removeUnmappedRows = TRUE )
+  
+  #get interactions 
+  inter<-string_db$get_interactions(mapped$STRING_id)
+  
+  #annotate source and target nodes
+  from <- gsub("9606.","",inter$from)
+  to <- gsub("9606.","",inter$to)
+  #divide combined_score values by 1000 to have
+  #scores in the range [0,1]
+  network <- cbind(from,to,inter[16]/1000)  
+  threshold <- 0.6   # select some relevant threshold
+  subNetwork <- network[network$combined_score > threshold,] 
+  
+  #edit STRING_id (speciesCode.ENSPxxxxx) to remove speciesCode.
+  stringID <- gsub(paste(speciesCode, ".", sep = ""), "", mapped$STRING_id)
+  drops <- "STRING_id"
+  mapped$STRINGID <- mapped$STRING_id
+  mapped <- mapped[!(names(mapped) %in% drops)]
+  
+  # end compiling network
+  
+  #write two files: 
+  #1) all network edges and 
+  #2) edges above specified threshold
+  cat(sprintf('\nSaving network (edges) to file: %s', fileName))
+  cat('. . .')
+  fileName <- paste(networkFileName, '.txt', sep = "")
+  write.table(mapped, fileName, sep = '\t', col.names = TRUE, 
+  		row.names = FALSE, quote = FALSE)
+  cat(sprintf('Done!'))
+  
+  cat(sprintf('\nSaving network for threshold: 0.60 in file: %s', fileName))
+  cat('. . .')
+  fileName <- paste(networkFileName, 'score_0.60.txt', sep = "")
+  write.table(subNetwork, fileName, sep = '\t', col.names = TRUE, 
+  		row.names = FALSE, quote = FALSE)
+  cat(sprintf('Done!'))
+\end{verbatim}
+\end{framed}
 
 
-\part{Part II}
+\part{Statistical Approaches with Sparsity}
 
-\section{Statistical Approaches with Sparsity}
+\section{Feature Selection using logistic regression}
+
+MultiPEN provides a framework for a combined analysis when different type of omics data available for a given study, specifically when data from RNA sequencing or microarray and metabolomics is available. This combined analysis aims to identify two aspects: first, the genes and metabolites that are key for the differences between two conditions, e.g., healthy vs disease, or patients under different treatments; and second, the pathway and biological processes involved in each condition. 
+
+In this work, we set the problem of finding the genes and metabolites that are key to discriminate between conditions  as a problem of machine learning, where two conditions, i.e., control and cases, are described by a set of features (i.e., genes and metabolites) and their values (i.e., expression) for the conditions. 
+We apply a penalised logistic regression approach to perform feature selection.
 
 \subsection{Exercise: Features selection from expression data using MultiPEN}
+
+%objective
+We will use logistic regression for feature selection.
+Based on a penalised regularised logistic approach \cite{Vlassis2015}.
 
 Perform feature selection for the gene expression data on the Fatty Liver study \cite{Wruck2015}. Using the feature selection function provided by MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}) which uses a penalised logistic regression approach. 
 
@@ -750,106 +824,177 @@ DecisionThreshold NumIterations
 
 Feature selection produces seven output files: 
 
+\paragraph{MultiPEN-Rankings\_lambdaX.txt:} Ranking of features for the corresponding lambda X. 
+This file contains the following columns and (n+5) rows (where n is the number of samples):
+
 \paragraph{}
-{\bf MultiPEN-Rankings\_lambdaX.txt}: Ranking of features for the corresponding lambda X.
 
-{\bf MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt}: Ranking of features which includes only features with higher expression in cases samples.
+\begin{tabulary}{\linewidth}{c c L c}
+Column & Column Name & Description & Example (row 4 in Figure \ref{fig:example_output_rankings}) \\
+\hline
+1 & name & Feature name & PPOX \\
+2 & weight & Weight (in the range [-1,1]) & 0.00290391 \\
+3 & ranking & Ranking according to the absolute weight, where ranking 1 corresponds to the most significant feature for the model & 3 \\
+4 & foldChange & Fold change to determine the expression change from control to cases & 1.1735 \\
+5 & higherIn & The average expression is higher in case or control & case \\
+6 & sample\_1 & First sample & case1 \\
+. . .  & . . .  & . . .  & . . . \\
+n + 5 & sample\_n & Last sample & control7 \\
+\end{tabulary}
 
-{\bf MultiPEN-Rankings\_lambdaX\_genes-higher-in-control.txt}: Ranking of features which includes only features with higher expression in control samples.
+\paragraph{MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt:} Ranking of features which includes only features with higher expression in cases samples.
 
-{\bf MultiPEN-vts\_lambdaX.txt}: Intercept term (logistic regression model).
+\paragraph{MultiPEN-Rankings\_lambdaX\_genes-higher-in-control.txt:} Ranking of features which includes only features with higher expression in control samples.
 
-{\bf MultiPEN-performance\_feature-selection\_lambdaX.txt}: file that contains statistics on the performance of feature selection: largest connected component (LCC), area under the curve (auc), accuracy, true positives (TP), true negatives (TN), false positives (FP) and false negatives (FN).
+\paragraph{MultiPEN-vts\_lambdaX.txt:} Intercept term (logistic regression model).
 
-{\bf MultiPEN-feature-selection\_config.txt}: Contains the information of the parameters used: lambda, number of iterations and decision threshold.
+\paragraph{MultiPEN-performance\_feature-selection\_lambdaX.txt:} file that contains statistics on the performance of feature selection: largest connected component (LCC), area under the curve (auc), accuracy, true positives (TP), true negatives (TN), false positives (FP) and false negatives (FN).
+
+\paragraph{MultiPEN-feature-selection\_config.txt:} Contains the information of the parameters used: lambda, number of iterations and decision threshold.
 
 
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{example_output_rankings}
+	\caption{Example of output file for feature selection}
+	\label{fig:example_output_rankings}
+\end{figure}
+
+
+\paragraph{Using MultiPEN for feature selection}
+\paragraph{}
+
+In the command line, navigate to the folder where the binary for MultiPEN is located, i.e., binary-Linux/MultiPEN\_v001\_Linux/. Then create variables for the paths to stand-alone application, output directory and input files by typing:
 %
-%This tabular file contains the results for the features selection. The first five columns contain the list of features, weight, ranking, fold change and the class where the feature had higher vote.  The last columns correspond to the expression data. The columns are defined as follows:
-%
-%
-%Column | Column Name | Description | Example (row 4 in Figure 2)
-%-------|-------------|-------------|-----------------------------
-%1 | name | Feature (gene and/or metabolite) name | PPOX
-%2 | weight | This is the weight learned by MultiPEN and it is a number in the range [-1,1]. | 0.00290391
-%3 | ranking | Ranking according to the absolute weight, where ranking 1 corresponds to the most significant feature for the model. | 3
-%4 | foldChange | Fold change to determine the expression change from control to cases. | 1.1735
-%5 | higherIn | The average expression is higher in case or control. | case
-%6 | sample_1 | First sample | case1
-%? | ? | ? | ?
-%n+5 (n is the number of samples) | sample_n | Last sample | control7
-%
-%The figure shows an example of the rankings file created with the feature selection module.
-%
-%![example output rankings](images/example_output_rankings.png)
-%
-%
-%**MultiPEN-Rankings_lambda0.001_genes-higher-in-cases.txt** and **MultiPEN-Rankings_lambda0.001_genes-higher-in-control.txt**
-%
-%These tabular files contain the ranking of features which includes only features with higher expression in cases samples and control samples separately. 
-%
-%
-%**MultiPEN-vts_lambda0.001.txt**
-%Intercept term (logistic regression model)
-%
-%
-%MultiPEN-performance_feature-selection_lambda0.001.txt | LCC, auc, accuracy, TP, TN, FP, FN
-%MultiPEN-feature-selection_config.txt | Lambda, number of iterations, decision threshold
-%
-%
-%** MultiPEN-feature-selection_config.txt **
-%File containing details of the parameters used to run feature selection: lambda, number of iterations (numIter - used to run the optimisation routine that solves the logistic regression problem) and the decision threshold (for class prediction). 
-%
-%
-%
-%### Example - OS
-%
-%*Using default decision threshold and number of iterations.*
-%
-%In the command line, navigate to the folder where the binary for MultiPEN is located, i.e., binary-OS/MultiPEN_v001_OS/. Then create variables for the paths to stand-alone application, output directory and input files by typing:
-%
-%```
-%MultiPEN="MultiPEN.app/Contents/MacOS/applauncher"
-%OutputDirectory="ExampleOutputs/"
-%ExpressionData="ExampleInputs/X.txt"
-%Interactions="ExampleInputs/E.txt"
-%SampleClass="ExampleInputs/Y.txt"
-%lambda=0.001
-%```
-%
-%
-%Next, run feature selection with the following command:
-%
-%```
-%$MultiPEN FeatureSelection $OutputDirectory $ExpressionData $Interactions $SampleClass $lambda
-%```
-%
-%
-%### Running example script for feature selection
-%
-%To run the script provided as example with all the default parameters, use the command:
-%
-%```
-%./example_feature_selection.sh 
-%```
+%    MultiPEN="MultiPEN.app/Contents/MacOS/applauncher"
+\begin{framed}
+\begin{verbatim}
+   Output="ExampleOutputs/"
+   Expression="ExampleInputs/X.txt"
+   Interactions="ExampleInputs/E.txt"
+   Class="ExampleInputs/Y.txt"
+   lambda=0.001
+\end{verbatim}
+\end{framed}
+
+
+Next, run feature selection with the following command:
+
+
+\begin{framed}
+\begin{verbatim}
+MultiPEN FeatureSelection $Output $Expression $Interactions $Class $lambda
+\end{verbatim}
+\end{framed}
 
 
 
 
+\subsection{Cross Validation}
 
-\section{Pathway Analysis}
+It is a technique to determine whether a model can be generalised to other similar databases (it measure the accuracy of a model).
 
-Objective
+\paragraph{Approach:}
 
-Steps
 
-Input data
-A list of ranked genes. For this session we will use the rankings from feature selection in ExampleOutputs\/MultiPEN\-Rankings\_lambda0.0001.txt.
+\begin{itemize}
 
-To run the R script type in the terminal:
+   \item Divide the dataset into training and test datasets
+   
+   \item Fit the model to the training set
+   
+   \item Use test set to evaluate goodness of fit
+   
+\end{itemize}
 
-Rscript enrichmentGO.R ../ExampleOutputs/MultiPEN\-Rankings\_lambda0.0001.txt output/
+
+Theory
+
+\begin{itemize}
+
+   \item Signal is correlated across tests and training sets
+   
+   \item Noise is uncorrelated across tests and training sets
+   
+\end{itemize}
+
+
+
+
+We will use the wrapper provided in MultiPEN to perform cross validation. 
+
+\paragraph{Syntax}
+\paragraph{}
+
+\begin{framed}
+\begin{verbatim}
+MultiPEN CrossValidation Output Expression Interactions Class 
+lambdas Folds NumIterations
+\end{verbatim}
+\end{framed}
+
+
+\paragraph{Description}
+
+
+\paragraph{MultiPEN:} This is the path to the binary executable of MultiPEN, i.e., binary-Linux/MultiPEN\_v001\_OS/.
+
+\paragraph{OutputDirectory:} Specify directory for output files.
+
+\paragraph{ExpressionData:}  The expression data is in tabular format where the rows are the features (genes and/or metabolites) and the columns are the samples. 
+
+\paragraph{Interactions:}  The interaction matrix where the ith interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
+
+\paragraph{SampleClass:} For each sample specify if control (0) or case (1).
+
+\paragraph{lambdas:} Set of lambdas to test for cross validation. If you are wanting to test more than one lambda, specify the lambdas by using the notation (include the quotation mark symbols): ``[lambda1 lambda2 . . . lambdaN]''. For example, if we want to try two lambdas, namely 0.02 and 0.2, we would specify it with: ``[0.02 0.2]''.
+
+\paragraph{Folds:} Specify the number of partitions for cross validation.
+
+\paragraph{NumIterations:} Maximum number of iterations for the optimisation solver. Default value is 100.
+
+
+\paragraph{}
+\paragraph{Cross Validation Output Files}
+\paragraph{}
+
+Cross Validation produces one output file:
+
+{\bf cross-validation\_stats.txt:} Statistics for tests which include, for each lambda, the size of the largest connected component (LCC), the standard deviation of the largest connected component (std\_LCC), the number of selected features (selected, i.e., features which weights are different to zero), area under the curve (AUC), and the standard deviation of the area under the curve (std\_AUC).
+
+
+\paragraph{Example}
+\paragraph{}
+
+
+In the command line, navigate to the folder where the binary for MultiPEN is located, i.e., MultiPEN\_v001\_Linux/. Then create variables for the paths to stand-alone application, output directory and input files by typing:
+
+
+\begin{framed}
+\begin{verbatim}
+Output="ExampleOutputs/"
+Expression="ExampleInputs/X.txt"
+Interactions="ExampleInputs/E.txt"
+Class="ExampleInputs/Y.txt"
+Folds=3
+NumIter=3000
+\end{verbatim}
+\end{framed}
+
+
+Note that in this example we are using the example files provided with the application. All the files used for the example are located in the folder: ExampleInputs/.
+
+
+Next, test Cross Validation for lambdas: "[0.000001 0.00001 0.0001 0.001 0.01 0.1 1 10]". Type the following command:
+
+
+\begin{framed}
+\begin{verbatim}
+MultiPEN CrossValidation $Output $Expression $Interactions $Class 
+"[0.000001 0.00001 0.0001 0.001 0.01 0.1 1 10]" $Folds $NumIter
+\end{verbatim}
+\end{framed}
 
 
 
