@@ -30,36 +30,40 @@
 \contentsline {part}{II\hspace {1em}Statistical Approaches with Sparsity}{20}{part.2}
 \contentsline {section}{\numberline {5}Feature Selection using logistic regression}{20}{section.5}
 \contentsline {subsection}{\numberline {5.1}Exercise: Features selection from expression data using MultiPEN}{21}{subsection.5.1}
-\contentsline {paragraph}{Syntax}{21}{section*.37}
+\contentsline {paragraph}{Using the Application}{21}{section*.37}
 \contentsline {paragraph}{}{21}{section*.38}
-\contentsline {paragraph}{Description}{21}{section*.39}
-\contentsline {paragraph}{}{21}{section*.40}
-\contentsline {paragraph}{Feature Selection Output Files}{21}{section*.41}
-\contentsline {paragraph}{}{22}{section*.42}
-\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX.txt:}{22}{section*.43}
-\contentsline {paragraph}{}{22}{section*.44}
-\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt:}{22}{section*.45}
-\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX\_genes-higher-in-control.txt:}{22}{section*.46}
-\contentsline {paragraph}{MultiPEN-vts\_lambdaX.txt:}{22}{section*.47}
-\contentsline {paragraph}{MultiPEN-performance\_feature-selection\_lambdaX.txt:}{22}{section*.48}
-\contentsline {paragraph}{MultiPEN-feature-selection\_config.txt:}{22}{section*.49}
-\contentsline {paragraph}{Using MultiPEN for feature selection}{23}{section*.51}
-\contentsline {paragraph}{}{23}{section*.52}
-\contentsline {subsection}{\numberline {5.2}Cross Validation}{23}{subsection.5.2}
-\contentsline {paragraph}{Approach:}{23}{section*.53}
-\contentsline {paragraph}{Syntax}{24}{section*.54}
-\contentsline {paragraph}{}{24}{section*.55}
-\contentsline {paragraph}{Description}{24}{section*.56}
-\contentsline {paragraph}{MultiPEN:}{24}{section*.57}
-\contentsline {paragraph}{OutputDirectory:}{24}{section*.58}
-\contentsline {paragraph}{ExpressionData:}{24}{section*.59}
-\contentsline {paragraph}{Interactions:}{24}{section*.60}
-\contentsline {paragraph}{SampleClass:}{24}{section*.61}
-\contentsline {paragraph}{lambdas:}{24}{section*.62}
-\contentsline {paragraph}{Folds:}{24}{section*.63}
-\contentsline {paragraph}{NumIterations:}{25}{section*.64}
-\contentsline {paragraph}{}{25}{section*.65}
-\contentsline {paragraph}{Cross Validation Output Files}{25}{section*.66}
-\contentsline {paragraph}{}{25}{section*.67}
-\contentsline {paragraph}{Example}{25}{section*.68}
-\contentsline {paragraph}{}{25}{section*.69}
+\contentsline {paragraph}{Running MultiPEN}{22}{section*.39}
+\contentsline {paragraph}{}{22}{section*.40}
+\contentsline {paragraph}{Syntax}{23}{section*.41}
+\contentsline {paragraph}{}{23}{section*.42}
+\contentsline {paragraph}{Description}{23}{section*.43}
+\contentsline {paragraph}{}{23}{section*.44}
+\contentsline {paragraph}{Feature Selection Output Files}{23}{section*.45}
+\contentsline {paragraph}{}{23}{section*.46}
+\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX.txt:}{23}{section*.47}
+\contentsline {paragraph}{}{24}{section*.48}
+\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt:}{24}{section*.49}
+\contentsline {paragraph}{MultiPEN-Rankings\_lambdaX\_genes-higher-in-control.txt:}{24}{section*.50}
+\contentsline {paragraph}{MultiPEN-vts\_lambdaX.txt:}{24}{section*.51}
+\contentsline {paragraph}{MultiPEN-performance\_feature-selection\_lambdaX.txt:}{24}{section*.52}
+\contentsline {paragraph}{MultiPEN-feature-selection\_config.txt:}{24}{section*.53}
+\contentsline {paragraph}{Using MultiPEN for feature selection}{24}{section*.55}
+\contentsline {paragraph}{}{24}{section*.56}
+\contentsline {subsection}{\numberline {5.2}Cross Validation}{25}{subsection.5.2}
+\contentsline {paragraph}{Approach:}{25}{section*.57}
+\contentsline {paragraph}{Syntax}{26}{section*.58}
+\contentsline {paragraph}{}{26}{section*.59}
+\contentsline {paragraph}{Description}{26}{section*.60}
+\contentsline {paragraph}{MultiPEN:}{26}{section*.61}
+\contentsline {paragraph}{OutputDirectory:}{26}{section*.62}
+\contentsline {paragraph}{ExpressionData:}{26}{section*.63}
+\contentsline {paragraph}{Interactions:}{26}{section*.64}
+\contentsline {paragraph}{SampleClass:}{26}{section*.65}
+\contentsline {paragraph}{lambdas:}{26}{section*.66}
+\contentsline {paragraph}{Folds:}{26}{section*.67}
+\contentsline {paragraph}{NumIterations:}{26}{section*.68}
+\contentsline {paragraph}{}{26}{section*.69}
+\contentsline {paragraph}{Cross Validation Output Files}{26}{section*.70}
+\contentsline {paragraph}{}{27}{section*.71}
+\contentsline {paragraph}{Example}{27}{section*.72}
+\contentsline {paragraph}{}{27}{section*.73}

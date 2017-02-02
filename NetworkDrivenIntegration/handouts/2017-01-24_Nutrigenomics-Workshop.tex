@@ -15,7 +15,9 @@
 \usepackage{framed}
 \usepackage{tabulary}
 \usepackage{hyperref}
+\usepackage{outlines}
 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 
 \title{Connecting Nutrition, Health and Environment }
@@ -776,34 +778,127 @@ Type the following code in an R script:
 
 MultiPEN provides a framework for a combined analysis when different type of omics data available for a given study, specifically when data from RNA sequencing or microarray and metabolomics is available. This combined analysis aims to identify two aspects: first, the genes and metabolites that are key for the differences between two conditions, e.g., healthy vs disease, or patients under different treatments; and second, the pathway and biological processes involved in each condition. 
 
-In this work, we set the problem of finding the genes and metabolites that are key to discriminate between conditions  as a problem of machine learning, where two conditions, i.e., control and cases, are described by a set of features (i.e., genes and metabolites) and their values (i.e., expression) for the conditions. 
-We apply a penalised logistic regression approach to perform feature selection.
+MultiPEN sets the problem of finding the genes and metabolites that are key to discriminate between conditions  as a problem of logistic regression, where two conditions, i.e., control and cases, are described by a set of features (i.e., genes and metabolites) and their values (i.e., expression) for two conditions. 
+We apply a penalised logistic regression approach to perform feature selection which solves Equation \ref{eq:findingWeights} to find weights for the features, where $w_i$ is the weight for the ith feature.
+
+\begin{equation}
+\min_{{\bf w},v} f( {\bf w}, v ) + \lambda \Omega ({\bf w}),
+\label{eq:findingWeights}
+\end{equation}
+
+\noindent where $f({\bf w}, v)$ is the expected logistic loss
+
+\begin{equation}
+f({\bf w}, v) = \frac{1}{n} \sum_{i=1}^{n}  \log( 1 + \exp (-y({\bf w}^{T}{\bf x}_i + v ) ) ),
+\label{eq:ExpectedLoss}
+\end{equation}
+
+\noindent and $\Omega({\bf w}$ is a penalty function that regularises ${\bf w}$, where $\lambda \in R_+$ controls the tradeoff. GenePEN proposes a function that penalises the differences between the absolute values of weights of neighbouring features in the graph:
+
+\begin{equation}
+\Omega({\bf w}) = \sum_{i=1}^{p}  \bigg[  \sum_{j=1}^{p} A_{ij} \lvert w_i \rvert - \sum_{j=1}^{p} A_{ij} \lvert w_j \rvert  \bigg]^2 + 2 \Delta \norm{ {\bf w} }_{1}^{2}
+\label{eq:penaltyFunction}
+\end{equation}
+ 
+
+Solving Equation \ref{eq:findingWeights} will result in finding the list of weights, {\bf w}, which provide a measure of the feature's relative importance in the learned model. The weight's absolute value can be used to rank the features, and selecting the most important could be easily achieved by setting a threshold to only consider those weights sufficiently far from zero. 
+
 
 \subsection{Exercise: Features selection from expression data using MultiPEN}
 
 %objective
-We will use logistic regression for feature selection.
-Based on a penalised regularised logistic approach \cite{Vlassis2015}.
+For this exercise we will use MultiPEN, which provides a wrapper for to solve the Equation \ref{eq:findingWeights} for feature selection. 
+MultiPEN is a software for the combined analysis of transcriptomics and metabolomics which includes a wrapper for feature selection, based on the logistic regression approach proposed by \cite{Vlassis2015}.
+To perform feature selection in MultiPEN, we will use the function {\bf FeatureSelection}. 
+For this example we will use the gene expression data provided with the software. 
+MultiPEN is available from: \url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}. For more details on how to use the software see \url{https://github.com/TGAC/MultiPEN/blob/master/MultiPEN_executable/MultiPEN_v001_documentation/user-manual.md}
 
-Perform feature selection for the gene expression data on the Fatty Liver study \cite{Wruck2015}. Using the feature selection function provided by MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}) which uses a penalised logistic regression approach. 
+%We will use the example gene expression data on the Fatty Liver study \cite{Wruck2015} and apply a logistic regression for feature selection as proposed by \cite{Vlassis2015}. We will use the feature selection function (called: FeatureSelection) provided by the software MultiPEN, which is available from: \url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}. 
+
+\paragraph{Using the Application}
+\paragraph{}
+
+MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. To do so:
+
+\begin{enumerate}
+
+   \item Download and save MATLAB Runtime for R2015b for your operating system from: \url{http://www.mathworks.com/products/compiler/mcr/index.html}.
+
+   \item Double click the installer and follow the instructions in the installation wizard.
+
+\end{enumerate}
+
+
+\paragraph{Running MultiPEN}
+\paragraph{}
+
+For this session, we included for you the application folder, called {\bf MultiPEN\_v001\_Linux}. The content of this folder is described below:
+
+\begin{outline}
+
+   \1 {\bf MultiPEN} is the application. To launch it, open a terminal, navigate to the application location (e.g., if the application is saved in Applications/, then navigate to: Applications/MultiPEN\_v001\_Linux). Type:
+   
+   {\bf MultiPEN}    {\it mcrpath}   [...options] 
+   
+   for more details on the syntax see next section.
+
+   \1 {\bf ExampleInputs}. Expression data provided to test the application. It includes:
+      \2 expressionData.txt
+      \2 groups.txt
+      \2 interactionMatrix.txt
+      \2 MultiPEN-Rankings\_lambda0.0001-onlyGenes.txt
+      \2 sampleClass.txt
+   
+   \1 {\bf ExampleOutputs}. Examples of the output files generated with MultiPEN for feature selection, cross validation and enrichment analysis using the toy example data.
+      \2 Cross Validation
+         \3 MultiPEN-performance\_feature-selection\_lambda0.0001.txt
+         
+      \2 Feature Selection
+      
+      \2 Enrichment Analysis
+         \3 enrichment-GO\_BP.pdf
+         \3 enrichment-GO\_CC.pdf
+         \3 enrichment-GO\_MF.pdf
+         \3 enrichment-GO.txt
+         
+      \2 MultiPEN-feature-selection\_config.txt
+         \3 MultiPEN-Rankings\_lambda0.0001\_higher-in-cases.txt
+         \3 MultiPEN-Rankings\_lambda0.0001\_higher-in-control.txt
+         \3 MultiPEN-Rankings\_lambda0.0001.txt
+         \3 MultiPEN-vts\_lambda0.0001.txt
+      
+   
+   
+   \1 Bash scripts with examples to run the application MultiPEN.
+   
+      \2 example\_cross\_validation.sh
+      \2 example\_feature\_selection.sh
+      \2 example\_hierarchical\_clustering.sh
+      \2 example\_pca.sh
+
+\end{outline}
+
+
 
 \paragraph{Syntax}
 \paragraph{}
 
 \begin{framed}
-\begin{verbatim}
-MultiPEN FeatureSelection Output Expression Interactions Class lambda 
-DecisionThreshold NumIterations
-\end{verbatim}
+%\begin{verbatim}
+{\bf MultiPEN} {\it mcrpath }  {\bf FeatureSelection } {\it Output } {\it Expression } {\it Interactions } {\it Class } {\it lambda } 
+{\it DecisionThreshold } {\it NumIterations}
+%\end{verbatim}
 \end{framed}
 
 
 \paragraph{Description}
 \paragraph{}
 
-{\bf MultiPEN}:  This is the path to the binary executable of MultiPEN
+{\bf MultiPEN}:  This is the nombre of the software, which has to be typed to launch the program.
 
-{\bf Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
+{\it mcrpath}: 
+
+{\it Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
 
 {\bf Expression}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
 
