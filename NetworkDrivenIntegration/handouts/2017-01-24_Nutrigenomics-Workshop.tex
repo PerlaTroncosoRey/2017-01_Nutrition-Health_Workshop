@@ -597,15 +597,46 @@ Ideally, samples of the same type will cluster together, e.g., all control sampl
 \subsection{Exercise: Hierarchical clustering for expression data}
 
 Compute hierarchical clustering on the Fatty Liver \cite{Wruck2015}.
-Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. To use the wrapper just use MultiPEN in a terminal using the following syntax:
+Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. 
+
+To use the MultiPEN's wrapper for hierarchical clustering, open a terminal and navigate to the folder where MultiPEN is located, then use the bash script provided as example: 
+
+\begin{framed}
+\begin{verbatim}
+   ./example_hierarchical_clustering
+\end{verbatim}
+\end{framed}
+
+
+\noindent which runs the following script:
+
+\begin{framed}
+\begin{verbatim}
+   mcrpath="mcrroot/"
+   OutputDirectory="ExampleOutputs/"
+   ExpressionData="ExampleInputs/expressionData.txt"
+
+   # Run MultiPEN: HierarchicalClustering
+   # Syntax: MultiPEN $mcrpath HierarchicalClustering $OutputDirectory 
+   $ExpressionData $Threshold $PlotTitle
+
+   ./MultiPEN $mcrpath HierarchicalClustering $OutputDirectory 
+   $ExpressionData 100 "Using example expression data"
+   
+\end{verbatim}
+\end{framed}
+
+\noindent The above scripts performs hierarchical clustering for the expression data provided in the file {\it expressionData.txt} and will save the plot as png figure in the file: {\it ExampleOutputs/hierarchical\_clustering.png}. The value 100 represents a threshold for the counts on gene expression (see syntax in below section), i.e., this function keeps the genes with counts larger than the specified threshold. 
+
 
 \paragraph{Syntax}
 \paragraph{}
 
+The syntax to call the hierarchical clustering function from MultiPEN is:
+
 \begin{framed}
-\begin{verbatim}
-MultiPEN HierarchicalClustering Output Expression Threshold Title
-\end{verbatim}
+   {\bf MultiPEN} {\it mcrpath} {\bf HierarchicalClustering} {\it OutputDirectory} 
+   {\it ExpressionData} {\it Threshold} {\it Title}
 \end{framed}
 
 
@@ -613,35 +644,29 @@ MultiPEN HierarchicalClustering Output Expression Threshold Title
 \paragraph{}
 
 
-{\bf MultiPEN}:  This is the path to the binary executable of MultiPEN
+{\bf MultiPEN}:  This is the nombre of the software, which has to be typed to start the program.
 
-{\bf Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
+{\it mcrpath}: MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. This is the path to the MATLAB run time compiler.
 
-{\bf Expression}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
+{\bf HierarchicalClustering}: specifies the function to run.
 
-{\bf Threshold}: To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument.
+{\it OutputDirectory}:  Specify directory to save the output image. The default is: {\it output/MultiPEN/stats/} 
 
-{\bf Title}: Specify the title to be displayed in the plot. This is an optional input argument.
+{\it ExpressionData}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples. 
+
+{\it Threshold}: To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument.
+
+{\it Title}: Specify the title to be displayed in the plot. This is an optional input argument.
 
 
-%\begin{table}[!h]
-%   \centering
-%   %\caption{ }
-%   \begin{tabulary}{\linewidth}{l L}
-%      Parameter & Description \\
-%      MultiPEN & This is the path to the binary executable of MultiPEN \\
-%      Output & Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} \\
-%      Expression & The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples. \\
-%      Threshold & To filter expression values. For example, for gene expression, it is common practice to discard genes with counts smaller than 100. This is an optional input argument. \\
-%      Title & Specify the title to be displayed in the plot. This is an optional input argument.
-%   \label{tab:SyntaxisClustergram}
-%   \end{tabulary}
-%\end{table}
 
-\paragraph{Exercise}
+
+\paragraph{Run hierarchical clustering using the wrapper from MultiPEN}
 \paragraph{}
 
-Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN visit \url{https://github.com/TGAC/MultiPEN/} \cite{Rey2017}.
+Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN visit \url{https://github.com/TGAC/MultiPEN/} \cite{Rey2017}. Make sure the expression data is in the right format as expected from MultiPEN (tip: see format from the expression data file provided as example: MultiPEN\_v001\_Linux/ExampleInputs/expressionData.txt)
+
+
 
 
 \section{Interaction Network}
@@ -815,8 +840,8 @@ MultiPEN is available from: \url{https://github.com/TGAC/MultiPEN/}, \cite{Rey20
 
 %We will use the example gene expression data on the Fatty Liver study \cite{Wruck2015} and apply a logistic regression for feature selection as proposed by \cite{Vlassis2015}. We will use the feature selection function (called: FeatureSelection) provided by the software MultiPEN, which is available from: \url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}. 
 
-\paragraph{Using the Application}
-\paragraph{}
+\subsubsection{Using the Application}
+
 
 MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. To do so:
 
@@ -829,8 +854,8 @@ MultiPEN is shared as a MATLAB stand-alone application, which requires the insta
 \end{enumerate}
 
 
-\paragraph{Running MultiPEN}
-\paragraph{}
+\subsubsection{Running MultiPEN and the function FeatureSelection}
+
 
 For this session, we included for you the application folder, called {\bf MultiPEN\_v001\_Linux}. The content of this folder is described below:
 
@@ -866,8 +891,6 @@ For this session, we included for you the application folder, called {\bf MultiP
          \3 MultiPEN-Rankings\_lambda0.0001\_higher-in-control.txt
          \3 MultiPEN-Rankings\_lambda0.0001.txt
          \3 MultiPEN-vts\_lambda0.0001.txt
-      
-   
    
    \1 Bash scripts with examples to run the application MultiPEN.
    
@@ -880,42 +903,76 @@ For this session, we included for you the application folder, called {\bf MultiP
 
 
 
-\paragraph{Syntax}
-\paragraph{}
+\subsubsection{Syntax}
+
+
+
+To run MultiPEN open a terminal, navigate to the folder (MultiPEN\_v001\_Linux) where the software is located. Then use the following syntax to run feature selection. The words in bold indicate the name of the program (MultiPEN) and the specific function that will be used (e.g. FeatureSelection).
 
 \begin{framed}
 %\begin{verbatim}
-{\bf MultiPEN} {\it mcrpath }  {\bf FeatureSelection } {\it Output } {\it Expression } {\it Interactions } {\it Class } {\it lambda } 
+{\bf MultiPEN} {\it mcrpath }  {\bf FeatureSelection } {\it OutputDirectory} 
+{\it ExpressionData } {\it Interactions } {\it SampleClass } {\it lambda } 
 {\it DecisionThreshold } {\it NumIterations}
 %\end{verbatim}
 \end{framed}
 
 
-\paragraph{Description}
-\paragraph{}
-
-{\bf MultiPEN}:  This is the nombre of the software, which has to be typed to launch the program.
-
-{\it mcrpath}: 
-
-{\it Output}:  Specify directory to save the output image, default is: {\it output/MultiPEN/stats/} 
-
-{\bf Expression}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
-
-{\bf Interactions}: The interaction matrix where the i{\it th} interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
-
-{\bf Class}: For each sample (one sample per row) specify if control (0) or case (1).
-
-{\bf lambda}: This is the lambda parameter that optimises the logistic regression problem for your specific data. Different lambdas can be tested using cross validation, then selecting the value that provides better results (in terms of the size of the largest connected component, accuracy or area under the curve).  
-
-{\bf DecisionThreshold}: The decision threshold is set to 0.5 by default. However, if want to test another value specify it here.
-
-{\bf NumIterations}: Maximum number of iterations for the optimisation solver. Default value is 100.
+\subsubsection{Description}
 
 
+{\bf MultiPEN}:  This is the nombre of the software, which has to be typed to start the program.
 
-\paragraph{Feature Selection Output Files}
-\paragraph{}
+{\it mcrpath}: MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. This is the path to the MATLAB run time compiler.
+
+{\bf FeatureSelection}: specifies the function to run.
+
+{\it OutputDirectory}:  Specify directory to save the output image. The default is: {\it output/MultiPEN/stats/} 
+
+{\it ExpressionData}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
+
+{\it Interactions}: The interaction matrix where the i{\it th} interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
+
+{\it SampleClass}: For each sample (one sample per row) specify if control (0) or case (1).
+
+{\it lambda}: This is the lambda parameter that optimises the logistic regression problem for your specific data. Different lambdas can be tested using cross validation, then selecting the value that provides better results (in terms of the size of the largest connected component, accuracy or area under the curve).  
+
+{\it DecisionThreshold}: The decision threshold is set to 0.5 by default. However, if want to test another value specify it here.
+
+{\it NumIterations}: Maximum number of iterations for the optimisation solver. Default value is 100.
+
+
+\subsubsection{Run MultiPEN and FeatureSelection with the example data}
+
+
+To run MultiPEN open a terminal and navigate to the folder (MultiPEN\_v001\_Linux) where the software is located. Then, set up the input parameters by typing:
+
+\begin{framed}
+\begin{verbatim}
+   mcrpath="mcrroot/" 
+   OutputDirectory="ExampleOutputs/"
+   ExpressionData="ExampleInputs/expressionData.txt"
+   Interactions="ExampleInputs/interactionMatrix.txt"
+   SampleClass="ExampleInputs/sampleClass.txt"
+   lambda=0.001
+\end{verbatim}
+\end{framed}
+
+
+Next, run the function FeatureSelection from MultiPEN:
+
+\begin{framed}
+\begin{verbatim}
+   MultiPEN $mcrpath FeatureSelection $OutputDirectory
+   $ExpressionData $Interactions $SampleClass $lambda
+\end{verbatim}
+\end{framed}
+
+
+The above will produce the following output files:
+
+\subsubsection{Feature Selection Output Files}
+
 
 Feature selection produces seven output files: 
 
@@ -957,34 +1014,6 @@ n + 5 & sample\_n & Last sample & control7 \\
 \end{figure}
 
 
-\paragraph{Using MultiPEN for feature selection}
-\paragraph{}
-
-In the command line, navigate to the folder where the binary for MultiPEN is located, i.e., binary-Linux/MultiPEN\_v001\_Linux/. Then create variables for the paths to stand-alone application, output directory and input files by typing:
-%
-%    MultiPEN="MultiPEN.app/Contents/MacOS/applauncher"
-\begin{framed}
-\begin{verbatim}
-   Output="ExampleOutputs/"
-   Expression="ExampleInputs/X.txt"
-   Interactions="ExampleInputs/E.txt"
-   Class="ExampleInputs/Y.txt"
-   lambda=0.001
-\end{verbatim}
-\end{framed}
-
-
-Next, run feature selection with the following command:
-
-
-\begin{framed}
-\begin{verbatim}
-MultiPEN FeatureSelection $Output $Expression $Interactions $Class $lambda
-\end{verbatim}
-\end{framed}
-
-
-
 
 \subsection{Cross Validation}
 
@@ -1019,47 +1048,45 @@ Theory
 
 We will use the wrapper provided in MultiPEN to perform cross validation. 
 
-\paragraph{Syntax}
-\paragraph{}
+\subsubsection{Syntax}
+
 
 \begin{framed}
-\begin{verbatim}
-MultiPEN CrossValidation Output Expression Interactions Class 
-lambdas Folds NumIterations
-\end{verbatim}
+
+   {\bf MultiPEN} {\it mcrpath} {\bf CrossValidation} {\it OutputDirectory} {\it ExpressionData} {\it Interactions} 
+   {\it SampleClass} {\it lambdas} {\it Folds} {\it  NumIterations}
+
 \end{framed}
 
 
-\paragraph{Description}
+\subsubsection{Description}
 
 
-\paragraph{MultiPEN:} This is the path to the binary executable of MultiPEN, i.e., binary-Linux/MultiPEN\_v001\_OS/.
+{\bf MultiPEN}:  This is the nombre of the software, which has to be typed to start the program.
 
-\paragraph{OutputDirectory:} Specify directory for output files.
+{\it mcrpath}: MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. This is the path to the MATLAB run time compiler.
 
-\paragraph{ExpressionData:}  The expression data is in tabular format where the rows are the features (genes and/or metabolites) and the columns are the samples. 
+{\bf CrossValidation}: specifies the function to run.
 
-\paragraph{Interactions:}  The interaction matrix where the ith interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
+{\it OutputDirectory}:  Specify directory to save the output image. The default is: {\it output/MultiPEN/stats/} 
 
-\paragraph{SampleClass:} For each sample specify if control (0) or case (1).
+{\it ExpressionData}: The expression data is in tabular format where the rows represent the features (e.g. genes) and the colums are the samples.
 
-\paragraph{lambdas:} Set of lambdas to test for cross validation. If you are wanting to test more than one lambda, specify the lambdas by using the notation (include the quotation mark symbols): ``[lambda1 lambda2 . . . lambdaN]''. For example, if we want to try two lambdas, namely 0.02 and 0.2, we would specify it with: ``[0.02 0.2]''.
+{\it Interactions}: The interaction matrix where the i{\it th} interaction (row) is represented as: [source target score] where {\it source} and {\it target} are names (symbolID for genes and CHEBI IDs for metabolites) of the connected nodes and {\it score} is a number in the range [0,1] representing the interaction confidence (where 1 corresponds to the maximum level of confidence).
 
-\paragraph{Folds:} Specify the number of partitions for cross validation.
+{\it SampleClass}: For each sample (one sample per row) specify if control (0) or case (1).
 
-\paragraph{NumIterations:} Maximum number of iterations for the optimisation solver. Default value is 100.
+{\it lambdas}: Set of lambdas to test for cross validation. If you are wanting to test more than one lambda, specify the lambdas by using the notation (include the quotation mark symbols): ``[lambda1 lambda2 . . . lambdaN]''. For example, if we want to try two lambdas, namely 0.02 and 0.2, we would specify it with: ``[0.02 0.2]''.
 
+{\it Folds}: Specify the number of partitions for cross validation.
 
-\paragraph{}
-\paragraph{Cross Validation Output Files}
-\paragraph{}
-
-Cross Validation produces one output file:
-
-{\bf cross-validation\_stats.txt:} Statistics for tests which include, for each lambda, the size of the largest connected component (LCC), the standard deviation of the largest connected component (std\_LCC), the number of selected features (selected, i.e., features which weights are different to zero), area under the curve (AUC), and the standard deviation of the area under the curve (std\_AUC).
+{\it NumIterations}: Maximum number of iterations for the optimisation solver. Default value is 100.
 
 
-\paragraph{Example}
+
+
+
+\subsubsection{Running MultiPEN for cross validation}
 \paragraph{}
 
 
@@ -1068,12 +1095,13 @@ In the command line, navigate to the folder where the binary for MultiPEN is loc
 
 \begin{framed}
 \begin{verbatim}
-Output="ExampleOutputs/"
-Expression="ExampleInputs/X.txt"
-Interactions="ExampleInputs/E.txt"
-Class="ExampleInputs/Y.txt"
-Folds=3
-NumIter=3000
+   OutputDirectory="ExampleOutputs/"
+   mcrpath="mcroot/"
+   ExpressionData="ExampleInputs/X.txt"
+   Interactions="ExampleInputs/E.txt"
+   SampleClass="ExampleInputs/Y.txt"
+   Folds=3
+   NumIter=3000
 \end{verbatim}
 \end{framed}
 
@@ -1086,10 +1114,21 @@ Next, test Cross Validation for lambdas: "[0.000001 0.00001 0.0001 0.001 0.01 0.
 
 \begin{framed}
 \begin{verbatim}
-MultiPEN CrossValidation $Output $Expression $Interactions $Class 
-"[0.000001 0.00001 0.0001 0.001 0.01 0.1 1 10]" $Folds $NumIter
+   MultiPEN $mcrpath CrossValidation $OutputDirectory 
+   $ExpressionData $Interactions $SampleClass 
+   "[0.000001 0.00001 0.0001 0.001 0.01 0.1 1 10]" $Folds $NumIter
 \end{verbatim}
 \end{framed}
+
+
+
+
+\subsubsection{Cross Validation Output Files}
+
+
+Cross Validation produces one output file:
+
+{\bf cross-validation\_stats.txt:} Statistics for tests which include, for each lambda, the size of the largest connected component (LCC), the standard deviation of the largest connected component (std\_LCC), the number of selected features (selected, i.e., features which weights are different to zero), area under the curve (AUC), and the standard deviation of the area under the curve (std\_AUC).
 
 
 
