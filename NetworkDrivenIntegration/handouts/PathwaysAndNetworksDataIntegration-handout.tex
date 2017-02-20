@@ -588,18 +588,25 @@ Ideally, samples of the same type will cluster together, e.g., all control sampl
 \end{figure}
 
 
-%Example of hierarchical clustering of simulated random numbers
-%Figure: Example of clustergram of simulated random numbers
-%No distinct clusters are observed. High and low expression values (red and blue colours) are mixed all together and the sample of the same type are mixed.
-
-
-
 \subsection{Exercise: Hierarchical clustering for expression data}
 
 Compute hierarchical clustering on the Fatty Liver \cite{Wruck2015}.
 Since MATLAB is a commercial software, we will use a free to use wrapper for MATLAB's clustergram function. This wrapper is available from MultiPEN (\url{https://github.com/TGAC/MultiPEN/}, \cite{Rey2017}). The wrapper provided in MultiPEN reads the expression data provided as a tabular file and plots the hierarchical clustering image on screen, which is also saved as a png image. 
 
-To use the MultiPEN's wrapper for hierarchical clustering, open a terminal and navigate to the folder where MultiPEN is located, then use the bash script provided as example: 
+\subsubsection{Using MultiPEN for hierarchical clustering}
+
+MultiPEN is shared as a MATLAB stand-alone application, which requires the installation of the MATLAB Runtime. To do so:
+
+\begin{enumerate}
+
+   \item Download and save MATLAB Runtime for R2015b for your operating system from: \url{http://www.mathworks.com/products/compiler/mcr/index.html}.
+
+   \item Double click the installer and follow the instructions in the installation wizard.
+
+\end{enumerate}
+
+
+Then,  to use the MultiPEN's wrapper for hierarchical clustering, open a terminal and navigate to the folder where MultiPEN is located, then use the bash script provided as example: 
 
 \begin{framed}
 \begin{verbatim}
@@ -626,7 +633,7 @@ To use the MultiPEN's wrapper for hierarchical clustering, open a terminal and n
 \end{verbatim}
 \end{framed}
 
-\noindent The above scripts performs hierarchical clustering for the expression data provided in the file {\it expressionData.txt} and will save the plot as png figure in the file: {\it ExampleOutputs/hierarchical\_clustering.png}. The value 100 represents a threshold for the counts on gene expression (see syntax in below section), i.e., this function keeps the genes with counts larger than the specified threshold. 
+\noindent where {\it mcrpath} corresponds to the location where the MATLAB Runtime is located, thus change it accordingly (see next section for the description of MultiPEN syntax). The script {\it example\_hierarchical\_clustering.sh} performs hierarchical clustering for the expression data provided in the file {\it expressionData.txt} and will save the plot as png figure in the file: {\it ExampleOutputs/hierarchical\_clustering.png}. The value 100 represents a threshold for the counts on gene expression (see syntax in below section), i.e., this function keeps the genes with counts larger than the specified threshold. 
 
 
 \paragraph{Syntax}
@@ -661,8 +668,7 @@ The syntax to call the hierarchical clustering function from MultiPEN is:
 
 
 
-\paragraph{Run hierarchical clustering using the wrapper from MultiPEN}
-\paragraph{}
+\subsubsection{Exercise: Run hierarchical clustering for the Fatty Liver Data \cite{Wruck2015}}
 
 Run the the wrapper in MultiPEN to perform hierarchical clustering in the expression data for the Fatty Liver data \cite{Wruck2015} used in previous exercise. For more information on running MultiPEN visit \url{https://github.com/TGAC/MultiPEN/} \cite{Rey2017}. Make sure the expression data is in the right format as expected from MultiPEN (tip: see format from the expression data file provided as example: MultiPEN\_v001\_Linux/ExampleInputs/expressionData.txt)
 
@@ -688,8 +694,7 @@ PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a met
 \end{enumerate}
 
 
-\paragraph{Using PSICQUIC web interface}
-\paragraph{}
+\subsubsection{Using PSICQUIC web interface}
 
 
 \begin{enumerate}
@@ -903,8 +908,8 @@ For this session, we included for you the application folder, called {\bf MultiP
 
 
 
-\subsubsection{Syntax}
-
+\paragraph{Syntax}
+\paragraph{}
 
 
 To run MultiPEN open a terminal, navigate to the folder (MultiPEN\_v001\_Linux) where the software is located. Then use the following syntax to run feature selection. The words in bold indicate the name of the program (MultiPEN) and the specific function that will be used (e.g. FeatureSelection).
@@ -918,7 +923,8 @@ To run MultiPEN open a terminal, navigate to the folder (MultiPEN\_v001\_Linux) 
 \end{framed}
 
 
-\subsubsection{Description}
+\paragraph{Description}
+\paragraph{}
 
 
 {\bf MultiPEN}:  This is the nombre of the software, which has to be typed to start the program.
@@ -1048,7 +1054,8 @@ Theory
 
 We will use the wrapper provided in MultiPEN to perform cross validation. 
 
-\subsubsection{Syntax}
+\paragraph{Syntax}
+\paragraph{}
 
 
 \begin{framed}
@@ -1059,7 +1066,8 @@ We will use the wrapper provided in MultiPEN to perform cross validation.
 \end{framed}
 
 
-\subsubsection{Description}
+\paragraph{Description}
+\paragraph{}
 
 
 {\bf MultiPEN}:  This is the nombre of the software, which has to be typed to start the program.
@@ -1129,79 +1137,6 @@ Next, test Cross Validation for lambdas: "[0.000001 0.00001 0.0001 0.001 0.01 0.
 Cross Validation produces one output file:
 
 {\bf cross-validation\_stats.txt:} Statistics for tests which include, for each lambda, the size of the largest connected component (LCC), the standard deviation of the largest connected component (std\_LCC), the number of selected features (selected, i.e., features which weights are different to zero), area under the curve (AUC), and the standard deviation of the area under the curve (std\_AUC).
-
-
-
-
-% Boxed code
-%\begin{framed}
-%\begin{verbatim}
-%	
-%\end{verbatim}
-%\end{framed}
-
-
-%Example to create a list
-%List:
-%\begin{itemize}
-%	\item item 1
-%	\item item 2		
-%\end{itemize}
-
-
-%Example to enumerate a list
-%\begin{enumerate}	
-%	\item enumerated item
-%	\item another item
-%\end{enumerate}
-
-
-%Figure resference \autoref{fig:volcanoplot}). 
-%
-%\begin{figure}[!h]
-%	\centering
-%	\includegraphics[width=\textwidth]{fFigureName}
-%	\caption{Some caption here}
-%	\label{fig:}
-%\end{figure}
-
-%figure with subfigures
-%\begin{figure}[!h]
-%	\centering
-%	\begin{subfigure}{.3\textwidth}
-%		\includegraphics[width=\textwidth]{MAPlotEPS1_8_EPS2_8}
-%		\caption{MA for EPS1 and EPS2, 8 hours}
-%		\label{fig:MAPlotEPS1_8_EPS2_8}
-%	\end{subfigure}
-%	\begin{subfigure}{0.3\textwidth}
-%		\includegraphics[width=\textwidth]{MAPlotEPS1_8_noEPS_8}
-%		\caption{MA for EPS1 and noEPS, 8 hours}
-%		\label{fig:MAPlotEPS1_8_noEPS_8}
-%	\end{subfigure}
-%	\begin{subfigure}{.3\textwidth}
-%		\includegraphics[width=\textwidth]{MAPlotEPS2_8_noEPS_8}
-%		\caption{MA for EPS2 and noEPS, 8 hours}
-%		\label{fig:MAPlotEPS2_8_noEPS_8}
-%	\end{subfigure}
-%	\caption{Average intensity vs log ratio Plots, for 8 hours}
-%	\label{fig:MAPlot_8hours}
-%\end{figure}
-
-
-%See below example of table  \autoref{tab:table1}
-%\begin{table}[h]
-%	\centering
-%	\caption{Example of table 1}
-%	\begin{tabular}{c | c | c}
-%		\hline
-%		column 1 & column 2 & column 3 \\
-%		\hline
-%		aaaaa  & bbbbbbb & ccccccc \\ 
-%		xxxxxxx  & yyyyyyyy & zzzzzzzz \\		
-%		\label{tab:table1}
-%	\end{tabular}
-%\end{table}
-
 
 
 

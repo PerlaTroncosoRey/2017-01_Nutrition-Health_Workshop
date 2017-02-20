@@ -3,6 +3,9 @@
 \bibitem{Clustergram}
 MATLAB and MathWorks.
 \newblock Compute hierarchical clustering.
+\newblock Available at
+  \url{https://uk.mathworks.com/help/bioinfo/ref/clustergram.html}, last
+  checked January 2017.
 
 \bibitem{Shannon2003}
 Paul Shannon, Andrew Markiel, Owen Ozier, Nitin~S. Baliga, Jonathan~T. Wang,
@@ -21,6 +24,8 @@ Michael~E Smoot, Keiichiro Ono, Johannes Ruscheinski, Peng-Liang Wang, and Trey
 \bibitem{Rey2017}
 Perla Troncoso-Rey and Wiktor Jurkowski.
 \newblock Multipen, 2017.
+\newblock Available at:
+  \url{https://github.com/TGAC/MultiPEN/blob/master/MultiPEN_executable/MultiPEN_v001_documentation/user-manual.md}.
 
 \bibitem{Vlassis2015}
 Nikos Vlassis and Enrico Glaab.
@@ -31,6 +36,8 @@ Nikos Vlassis and Enrico Glaab.
 \bibitem{Vu2016}
 Vinve~Q. Vu.
 \newblock Ggbiplot.
+\newblock available at: \url{https://github.com/vqv/ggbiplot}, last checked Jan
+  2017.
 
 \bibitem{Wruck2015}
 Wasco Wruck, Karl Kashofer, Samrina Rehman, Andriani Daskalaki, Daniela Berg,
