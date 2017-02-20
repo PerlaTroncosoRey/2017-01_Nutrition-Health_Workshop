@@ -50,7 +50,7 @@ The gene expression data is normally stored in tabular file, representing a matr
 
 Example of expression data is shown in \autoref{fig:ExpressionData}. The table shows the expression of six genes in four different experiments or samples. This is, gene A has expression of 0.1 for sample 1, 0.8 for sample 2, 0.3 for sample 3, and so forth. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{example_expression_data}
 	\caption{Example of expression data with samples across the columns and individual genes down the rows.}
@@ -61,7 +61,7 @@ Example of expression data is shown in \autoref{fig:ExpressionData}. The table s
 Expression data can be obtained using different algorithms. One of the most well know are TopHat and Cufflinks protocol for the analysis of RNA sequencing data, which includes quantification of gene expression. \autoref{tab:ExpressionCufflinks} shows an example of the output provided by cufflinks with the estimated gene-level expression values. Cufflinks uses the notation ``XLOC\_{\it numeric\_sequence}'' to identify a gene.
 
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \caption{Example of the output provided by cufflinks for the quantification of gene expression from RNA sequencing data.}
     \begin{tabular}{c|c|c|c|c|c|c|c|c}
@@ -111,7 +111,7 @@ The variance provides the the spread of the data:
 
 For example, Figure \ref{fig:MeanVariance} shows two distributions with the same mean but different variance. This means that the data points are at the same location but with a different strength. Thus, the third statistic we'll need is the covariance.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{same-mean_different-variance}
 	\caption{Two distributions with the same mean but different variance.}
@@ -134,7 +134,7 @@ Increases with increasing co-dependency and variance. Just as the variance measu
 The covariance also increases in magnitude as the variance of each of the two datasets increases.
 Correlation values can be negative or positive, indicating whether the values of two variables increase or decrease together. Figure \ref{fig:examples-correlation} shows some examples of correlation.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{examples-correlation}
 	\caption{Examples of correlation}
@@ -151,7 +151,7 @@ An alternative coordinate system described by the coordinates $\text{X}^\prime$ 
 
 The two coordinate systems are $T{\bf v} = {\bf v}^\prime$, related to the orthogonal transform matrix $T$. An orthogonal matrix is the kind of matrix which performs rotated-axis coordinate transforms. Thus, we can make a new coordinate system by using a transformation matrix T, which relates the two coordinates vectors by matrix multiplication. There are many types of transformations but we are particularly interested in transformations which rotate the coordinate axis. These are performed by matrices which have the property called orthogonality.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{example-coordinate-transform}
 	\caption{Example of a coordinate transform}
@@ -316,7 +316,7 @@ Then, we plot these two genes (see Figure \ref{fig:PlotTwoGenes}) using the comm
 
 
 %Plot data and data centered
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}{.45\textwidth}
 		\includegraphics[width=\textwidth]{example1-plot-two-genes}
@@ -419,14 +419,6 @@ Thus, PCA is capturing as much variation in the first component as possible, the
 In the case of our data, all the meaningful variation sees to have been captured with the first coordinate, or the first principal component. Specially compared to the second component which would seem to be random scatter. So we have reduced the dimensionality of our data from two to one. In cases when dealing with thousands of genes, PCA might be able to capture most of the variation of the data in with only two or three principal components. Thus making it easier to visualise it, which is one of the main motivations of performing PCA.
 
 
-\begin{figure}[!h]
-	\includegraphics[width=\textwidth]{example1_plot_2PC}
-	\caption{Plot of two genes in the new coordinates}
-	\label{fig:PlotTwoGenesNewCoordiantes}
-\end{figure}
-
-
-
 
 % Example 2: loading example data from file
 \subsection{Exercise: PCA using example data}
@@ -517,7 +509,7 @@ Dots of the same type tend to cluster together which means that samples of the s
 The distance on the dots on each axis should not be treated equally (as each component captures a different percentage of variance). Thus, the difference on the first component should be taken into more consideration.
 Furthermore, the ellipse in the figure represents the normal data ellipse for each group for the details of 68\%. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{example2-first2components-fattyLiverData}
 	\caption{The first two principal components for gene expression data in a study on Fatty Liver. The plot was generated using the R package ggbiplot \cite{Vu2016}}
 	\label{fig:PCAFattyLiver}
@@ -532,7 +524,7 @@ Furthermore, the ellipse in the figure represents the normal data ellipse for ea
 Plot the three principal components for the expression data.
 Figure \ref{fig:example2-PCA-3D} shows an example of such plot.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{example2-PCA-3D}
 	\caption{The first three principal components for gene expression data in a study on Fatty Liver \cite{Wruck2015}. Note: the plot was generated using MATLAB, can you plot the three components in R}
 	\label{fig:example2-PCA-3D}
@@ -581,7 +573,7 @@ Each column is a sample expression profile, and each row represents a gene.
 The colours suggests relative expression values, where red indicates high expression values and blue indicates low expression values. 
 Ideally, samples of the same type will cluster together, e.g., all control samples will cluster together and all cases as well.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\includegraphics[width=\textwidth]{hierarchical-clustering}
 	\caption{Example of hierarchical clustering using the MATLAB function clustergram}
 	\label{fig:hierarchical-clustering}
@@ -701,7 +693,7 @@ PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a met
    \item Paste list of genes into the search query and select source db (see Figure \ref{fig:psicquic1}).
 
 
-   \begin{figure}[!h]
+   \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{psicquic1}
 	\caption{Query of gene using PSICQUIC web interface}
@@ -710,7 +702,7 @@ PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a met
 
    \item After initial search the service informs about number of interactions detected in given resource (see Figure \ref{fig:psicquic2}).
 
-   \begin{figure}[!h]
+   \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{psicquic2}
 	\caption{Result of the interactions found for search term in PSICQUIC}
@@ -720,7 +712,7 @@ PSICQUIC is a tool developed by Pablo Porras at EBI and it is in principle a met
    \item Now we can view results, customise list of displayed columns and download results (see Figure \ref{fig:psicquic3}).
    
 
-   \begin{figure}[!h]
+   \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{psicquic3}
 	\caption{Customising view of results provided by PSICQUIC}
@@ -1012,7 +1004,7 @@ n + 5 & sample\_n & Last sample & control7 \\
 
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{example_output_rankings}
 	\caption{Example of output file for feature selection}
