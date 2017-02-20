@@ -7,7 +7,7 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces The first two principal components for gene expression data in a study on Fatty Liver. The plot was generated using the R package ggbiplot \cite {Vu2016}\relax }}{13}{figure.caption.19}
 \contentsline {figure}{\numberline {8}{\ignorespaces The first three principal components for gene expression data in a study on Fatty Liver \cite {Wruck2015}. Note: the plot was generated using MATLAB, can you plot the three components in R\relax }}{14}{figure.caption.22}
 \contentsline {figure}{\numberline {9}{\ignorespaces Example of hierarchical clustering using the MATLAB function clustergram\relax }}{16}{figure.caption.25}
-\contentsline {figure}{\numberline {10}{\ignorespaces Query of gene using PSICQUIC web interface\relax }}{18}{figure.caption.34}
-\contentsline {figure}{\numberline {11}{\ignorespaces Result of the interactions found for search term in PSICQUIC\relax }}{19}{figure.caption.35}
-\contentsline {figure}{\numberline {12}{\ignorespaces Customising view of results provided by PSICQUIC\relax }}{19}{figure.caption.36}
+\contentsline {figure}{\numberline {10}{\ignorespaces Query of gene using PSICQUIC web interface\relax }}{19}{figure.caption.30}
+\contentsline {figure}{\numberline {11}{\ignorespaces Result of the interactions found for search term in PSICQUIC\relax }}{19}{figure.caption.31}
+\contentsline {figure}{\numberline {12}{\ignorespaces Customising view of results provided by PSICQUIC\relax }}{20}{figure.caption.32}
 \contentsline {figure}{\numberline {13}{\ignorespaces Example of output file for feature selection\relax }}{27}{figure.caption.44}

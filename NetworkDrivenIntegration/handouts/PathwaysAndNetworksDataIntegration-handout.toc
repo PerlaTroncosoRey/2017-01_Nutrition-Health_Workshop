@@ -16,26 +16,27 @@
 \contentsline {paragraph}{}{14}{section*.24}
 \contentsline {section}{\numberline {3}Hierarchical Clustering}{15}{section.3}
 \contentsline {subsection}{\numberline {3.1}Exercise: Hierarchical clustering for expression data}{15}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Using MultiPEN for hierarchical clustering}{15}{subsubsection.3.1.1}
 \contentsline {paragraph}{Syntax}{17}{section*.26}
 \contentsline {paragraph}{}{17}{section*.27}
 \contentsline {paragraph}{Description}{17}{section*.28}
 \contentsline {paragraph}{}{17}{section*.29}
-\contentsline {paragraph}{Run hierarchical clustering using the wrapper from MultiPEN}{17}{section*.30}
-\contentsline {paragraph}{}{17}{section*.31}
+\contentsline {subsubsection}{\numberline {3.1.2}Exercise: Run hierarchical clustering for the Fatty Liver Data \cite {Wruck2015}}{18}{subsubsection.3.1.2}
 \contentsline {section}{\numberline {4}Interaction Network}{18}{section.4}
 \contentsline {subsection}{\numberline {4.1}Exercise: Building a network using PSICQUIC}{18}{subsection.4.1}
-\contentsline {paragraph}{Using PSICQUIC web interface}{18}{section*.32}
-\contentsline {paragraph}{}{18}{section*.33}
-\contentsline {subsection}{\numberline {4.2}Compile the network with STRINGdb}{20}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.1.1}Using PSICQUIC web interface}{18}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}Compile the network with STRINGdb}{18}{subsection.4.2}
 \contentsline {part}{II\hspace {1em}Statistical Approaches with Sparsity}{21}{part.2}
-\contentsline {section}{\numberline {5}Feature Selection using logistic regression}{21}{section.5}
+\contentsline {section}{\numberline {5}Feature Selection using logistic regression}{22}{section.5}
 \contentsline {subsection}{\numberline {5.1}Exercise: Features selection from expression data using MultiPEN}{22}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Using the Application}{22}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Using the Application}{23}{subsubsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.2}Running MultiPEN and the function FeatureSelection}{23}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Syntax}{24}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Description}{24}{subsubsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.5}Run MultiPEN and FeatureSelection with the example data}{24}{subsubsection.5.1.5}
-\contentsline {subsubsection}{\numberline {5.1.6}Feature Selection Output Files}{25}{subsubsection.5.1.6}
+\contentsline {paragraph}{Syntax}{24}{section*.33}
+\contentsline {paragraph}{}{24}{section*.34}
+\contentsline {paragraph}{Description}{24}{section*.35}
+\contentsline {paragraph}{}{24}{section*.36}
+\contentsline {subsubsection}{\numberline {5.1.3}Run MultiPEN and FeatureSelection with the example data}{25}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Feature Selection Output Files}{25}{subsubsection.5.1.4}
 \contentsline {paragraph}{MultiPEN-Rankings\_lambdaX.txt:}{25}{section*.37}
 \contentsline {paragraph}{}{26}{section*.38}
 \contentsline {paragraph}{MultiPEN-Rankings\_lambdaX\_genes-higher-in-cases.txt:}{26}{section*.39}
@@ -45,8 +46,10 @@
 \contentsline {paragraph}{MultiPEN-feature-selection\_config.txt:}{26}{section*.43}
 \contentsline {subsection}{\numberline {5.2}Cross Validation}{26}{subsection.5.2}
 \contentsline {paragraph}{Approach:}{27}{section*.45}
-\contentsline {subsubsection}{\numberline {5.2.1}Syntax}{27}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Description}{27}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Running MultiPEN for cross validation}{28}{subsubsection.5.2.3}
-\contentsline {paragraph}{}{28}{section*.46}
-\contentsline {subsubsection}{\numberline {5.2.4}Cross Validation Output Files}{29}{subsubsection.5.2.4}
+\contentsline {paragraph}{Syntax}{27}{section*.46}
+\contentsline {paragraph}{}{27}{section*.47}
+\contentsline {paragraph}{Description}{27}{section*.48}
+\contentsline {paragraph}{}{27}{section*.49}
+\contentsline {subsubsection}{\numberline {5.2.1}Running MultiPEN for cross validation}{28}{subsubsection.5.2.1}
+\contentsline {paragraph}{}{28}{section*.50}
+\contentsline {subsubsection}{\numberline {5.2.2}Cross Validation Output Files}{29}{subsubsection.5.2.2}
